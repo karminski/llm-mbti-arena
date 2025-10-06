@@ -1,0 +1,40 @@
+{
+  "name": "llm-mbti-arena",
+  "version": "1.0.0",
+  "description": "A CLI tool for testing LLM personality types using MBTI",
+  "type": "module",
+  "main": "./dist/main.js",
+  "bin": {
+    "llmmbtibenchmark": "./dist/main.js"
+  },
+  "scripts": {
+    "build": "tsup",
+    "dev": "tsx src/main.ts",
+    "test": "vitest run",
+    "test:watch": "vitest"
+  },
+  "keywords": [
+    "llm",
+    "mbti",
+    "personality",
+    "benchmark",
+    "cli"
+  ],
+  "author": "",
+  "license": "MIT",
+  "dependencies": {
+    "openai": "^4.0.0",
+    "commander": "^11.0.0",
+    "chalk": "^5.0.0"
+  },
+  "devDependencies": {
+    "typescript": "^5.0.0",
+    "vitest": "^1.0.0",
+    "@types/node": "^20.0.0",
+    "tsx": "^4.0.0",
+    "tsup": "^8.0.0"
+  },
+  "engines": {
+    "node": ">=18.0.0"
+  }
+}
