@@ -1,0 +1,583 @@
+{
+  "modelName": "openai/gpt-4.1-mini",
+  "testTime": "2025-10-07T17:21:27.829Z",
+  "personalityType": "INTJ",
+  "percentages": {
+    "E_I": {
+      "E": 43,
+      "I": 57
+    },
+    "S_N": {
+      "S": 26,
+      "N": 74
+    },
+    "T_F": {
+      "T": 52,
+      "F": 48
+    },
+    "J_P": {
+      "J": 82,
+      "P": 18
+    }
+  },
+  "answers": [
+    {
+      "questionIndex": 0,
+      "question": "当你要外出一整天，你会",
+      "chosenOption": "A",
+      "dimension": "J"
+    },
+    {
+      "questionIndex": 1,
+      "question": "你认为自己是一个",
+      "chosenOption": "B",
+      "dimension": "J"
+    },
+    {
+      "questionIndex": 2,
+      "question": "假如你是一名老师，你会选教",
+      "chosenOption": "B",
+      "dimension": "N"
+    },
+    {
+      "questionIndex": 3,
+      "question": "你通常",
+      "chosenOption": "B",
+      "dimension": "I"
+    },
+    {
+      "questionIndex": 4,
+      "question": "一般来说，你和哪些人比较合得来？",
+      "chosenOption": "A",
+      "dimension": "N"
+    },
+    {
+      "questionIndex": 5,
+      "question": "你是否经常让",
+      "chosenOption": "B",
+      "dimension": "T"
+    },
+    {
+      "questionIndex": 6,
+      "question": "处理许多事情上，你会喜欢",
+      "chosenOption": "B",
+      "dimension": "J"
+    },
+    {
+      "questionIndex": 7,
+      "question": "你是否",
+      "chosenOption": "A",
+      "dimension": "E"
+    },
+    {
+      "questionIndex": 8,
+      "question": "按照程序表做事",
+      "chosenOption": "A",
+      "dimension": "J"
+    },
+    {
+      "questionIndex": 9,
+      "question": "当你有一项特别的任务，你会喜欢",
+      "chosenOption": "A",
+      "dimension": "J"
+    },
+    {
+      "questionIndex": 10,
+      "question": "在大多数情况下，你会选择",
+      "chosenOption": "A",
+      "dimension": "P"
+    },
+    {
+      "questionIndex": 11,
+      "question": "大多数人会说你是一个",
+      "chosenOption": "B",
+      "dimension": "E"
+    },
+    {
+      "questionIndex": 12,
+      "question": "你宁愿被人认为是一个",
+      "chosenOption": "A",
+      "dimension": "S"
+    },
+    {
+      "questionIndex": 13,
+      "question": "在一大群人当中，通常是",
+      "chosenOption": "B",
+      "dimension": "I"
+    },
+    {
+      "questionIndex": 14,
+      "question": "你会跟哪些人做朋友？",
+      "chosenOption": "A",
+      "dimension": "N"
+    },
+    {
+      "questionIndex": 15,
+      "question": "你倾向",
+      "chosenOption": "B",
+      "dimension": "T"
+    },
+    {
+      "questionIndex": 16,
+      "question": "你比较喜欢",
+      "chosenOption": "B",
+      "dimension": "J"
+    },
+    {
+      "questionIndex": 17,
+      "question": "你喜欢花很多的时间",
+      "chosenOption": "A",
+      "dimension": "I"
+    },
+    {
+      "questionIndex": 18,
+      "question": "与很多人一起会",
+      "chosenOption": "A",
+      "dimension": "E"
+    },
+    {
+      "questionIndex": 19,
+      "question": "你比较喜欢",
+      "chosenOption": "B",
+      "dimension": "P"
+    },
+    {
+      "questionIndex": 20,
+      "question": "计划一个旅程时，你较喜欢",
+      "chosenOption": "B",
+      "dimension": "J"
+    },
+    {
+      "questionIndex": 21,
+      "question": "在社交聚会中，你",
+      "chosenOption": "B",
+      "dimension": "E"
+    },
+    {
+      "questionIndex": 22,
+      "question": "你通常",
+      "chosenOption": "B",
+      "dimension": "I"
+    },
+    {
+      "questionIndex": 23,
+      "question": "哪些人会更吸引你？",
+      "chosenOption": "A",
+      "dimension": "N"
+    },
+    {
+      "questionIndex": 24,
+      "question": "在日常工作中，你会",
+      "chosenOption": "B",
+      "dimension": "J"
+    },
+    {
+      "questionIndex": 25,
+      "question": "你认为别人一般",
+      "chosenOption": "A",
+      "dimension": "I"
+    },
+    {
+      "questionIndex": 26,
+      "question": "在下列每一对词语中，哪一个词语更合你心意？请仔细想想这些词语的意义，而不要理会他们的字形或读音。",
+      "chosenOption": "B",
+      "dimension": "E"
+    },
+    {
+      "questionIndex": 27,
+      "question": "在下列每一对词语中，哪一个词语更合你心意？请仔细想想这些词语的意义，而不要理会他们的字形或读音。",
+      "chosenOption": "A",
+      "dimension": "J"
+    },
+    {
+      "questionIndex": 28,
+      "question": "在下列每一对词语中，哪一个词语更合你心意？请仔细想想这些词语的意义，而不要理会他们的字形或读音。",
+      "chosenOption": "A",
+      "dimension": "N"
+    },
+    {
+      "questionIndex": 29,
+      "question": "在下列每一对词语中，哪一个词语更合你心意？请仔细想想这些词语的意义，而不要理会他们的字形或读音。",
+      "chosenOption": "B",
+      "dimension": "T"
+    },
+    {
+      "questionIndex": 30,
+      "question": "在下列每一对词语中，哪一个词语更合你心意？请仔细想想这些词语的意义，而不要理会他们的字形或读音。",
+      "chosenOption": "A",
+      "dimension": "T"
+    },
+    {
+      "questionIndex": 31,
+      "question": "在下列每一对词语中，哪一个词语更合你心意？请仔细想想这些词语的意义，而不要理会他们的字形或读音。",
+      "chosenOption": "B",
+      "dimension": "N"
+    },
+    {
+      "questionIndex": 32,
+      "question": "在下列每一对词语中，哪一个词语更合你心意？请仔细想想这些词语的意义，而不要理会他们的字形或读音。",
+      "chosenOption": "B",
+      "dimension": "J"
+    },
+    {
+      "questionIndex": 33,
+      "question": "在下列每一对词语中，哪一个词语更合你心意？请仔细想想这些词语的意义，而不要理会他们的字形或读音。",
+      "chosenOption": "B",
+      "dimension": "I"
+    },
+    {
+      "questionIndex": 34,
+      "question": "在下列每一对词语中，哪一个词语更合你心意？请仔细想想这些词语的意义，而不要理会他们的字形或读音。",
+      "chosenOption": "A",
+      "dimension": "I"
+    },
+    {
+      "questionIndex": 35,
+      "question": "在下列每一对词语中，哪一个词语更合你心意？请仔细想想这些词语的意义，而不要理会他们的字形或读音。",
+      "chosenOption": "A",
+      "dimension": "J"
+    },
+    {
+      "questionIndex": 36,
+      "question": "在下列每一对词语中，哪一个词语更合你心意？请仔细想想这些词语的意义，而不要理会他们的字形或读音。",
+      "chosenOption": "B",
+      "dimension": "S"
+    },
+    {
+      "questionIndex": 37,
+      "question": "在下列每一对词语中，哪一个词语更合你心意？请仔细想想这些词语的意义，而不要理会他们的字形或读音。",
+      "chosenOption": "B",
+      "dimension": "T"
+    },
+    {
+      "questionIndex": 38,
+      "question": "在下列每一对词语中，哪一个词语更合你心意？请仔细想想这些词语的意义，而不要理会他们的字形或读音。",
+      "chosenOption": "B",
+      "dimension": "F"
+    },
+    {
+      "questionIndex": 39,
+      "question": "在下列每一对词语中，哪一个词语更合你心意？请仔细想想这些词语的意义，而不要理会他们的字形或读音。",
+      "chosenOption": "B",
+      "dimension": "N"
+    },
+    {
+      "questionIndex": 40,
+      "question": "在下列每一对词语中，哪一个词语更合你心意？请仔细想想这些词语的意义，而不要理会他们的字形或读音。",
+      "chosenOption": "A",
+      "dimension": "P"
+    },
+    {
+      "questionIndex": 41,
+      "question": "在下列每一对词语中，哪一个词语更合你心意？请仔细想想这些词语的意义，而不要理会他们的字形或读音。",
+      "chosenOption": "B",
+      "dimension": "E"
+    },
+    {
+      "questionIndex": 42,
+      "question": "在下列每一对词语中，哪一个词语更合你心意？请仔细想想这些词语的意义，而不要理会他们的字形或读音。",
+      "chosenOption": "A",
+      "dimension": "J"
+    },
+    {
+      "questionIndex": 43,
+      "question": "在下列每一对词语中，哪一个词语更合你心意？请仔细想想这些词语的意义，而不要理会他们的字形或读音。",
+      "chosenOption": "A",
+      "dimension": "N"
+    },
+    {
+      "questionIndex": 44,
+      "question": "在下列每一对词语中，哪一个词语更合你心意？请仔细想想这些词语的意义，而不要理会他们的字形或读音。",
+      "chosenOption": "B",
+      "dimension": "T"
+    },
+    {
+      "questionIndex": 45,
+      "question": "在下列每一对词语中，哪一个词语更合你心意？请仔细想想这些词语的意义，而不要理会他们的字形或读音。",
+      "chosenOption": "B",
+      "dimension": "F"
+    },
+    {
+      "questionIndex": 46,
+      "question": "在下列每一对词语中，哪一个词语更合你心意？请仔细想想这些词语的意义，而不要理会他们的字形或读音。",
+      "chosenOption": "A",
+      "dimension": "S"
+    },
+    {
+      "questionIndex": 47,
+      "question": "在下列每一对词语中，哪一个词语更合你心意？请仔细想想这些词语的意义，而不要理会他们的字形或读音。",
+      "chosenOption": "B",
+      "dimension": "E"
+    },
+    {
+      "questionIndex": 48,
+      "question": "在下列每一对词语中，哪一个词语更合你心意？请仔细想想这些词语的意义，而不要理会他们的字形或读音。",
+      "chosenOption": "A",
+      "dimension": "J"
+    },
+    {
+      "questionIndex": 49,
+      "question": "在下列每一对词语中，哪一个词语更合你心意？请仔细想想这些词语的意义，而不要理会他们的字形或读音。",
+      "chosenOption": "A",
+      "dimension": "N"
+    },
+    {
+      "questionIndex": 50,
+      "question": "在下列每一对词语中，哪一个词语更合你心意？请仔细想想这些词语的意义，而不要理会他们的字形或读音。",
+      "chosenOption": "B",
+      "dimension": "T"
+    },
+    {
+      "questionIndex": 51,
+      "question": "在下列每一对词语中，哪一个词语更合你心意？请仔细想想这些词语的意义，而不要理会他们的字形或读音。",
+      "chosenOption": "B",
+      "dimension": "F"
+    },
+    {
+      "questionIndex": 52,
+      "question": "在下列每一对词语中，哪一个词语更合你心意？请仔细想想这些词语的意义，而不要理会他们的字形或读音。",
+      "chosenOption": "B",
+      "dimension": "N"
+    },
+    {
+      "questionIndex": 53,
+      "question": "在下列每一对词语中，哪一个词语更合你心意？请仔细想想这些词语的意义，而不要理会他们的字形或读音。",
+      "chosenOption": "A",
+      "dimension": "I"
+    },
+    {
+      "questionIndex": 54,
+      "question": "在下列每一对词语中，哪一个词语更合你心意？请仔细想想这些词语的意义，而不要理会他们的字形或读音。",
+      "chosenOption": "B",
+      "dimension": "S"
+    },
+    {
+      "questionIndex": 55,
+      "question": "在下列每一对词语中，哪一个词语更合你心意？请仔细想想这些词语的意义，而不要理会他们的字形或读音。",
+      "chosenOption": "A",
+      "dimension": "F"
+    },
+    {
+      "questionIndex": 56,
+      "question": "在下列每一对词语中，哪一个词语更合你心意？请仔细想想这些词语的意义，而不要理会他们的字形或读音。",
+      "chosenOption": "A",
+      "dimension": "T"
+    },
+    {
+      "questionIndex": 57,
+      "question": "在下列每一对词语中，哪一个词语更合你心意？请仔细想想这些词语的意义，而不要理会他们的字形或读音。",
+      "chosenOption": "A",
+      "dimension": "S"
+    },
+    {
+      "questionIndex": 58,
+      "question": "当你要在一个星期内完成一个大项目，你在开始的时候会",
+      "chosenOption": "A",
+      "dimension": "J"
+    },
+    {
+      "questionIndex": 59,
+      "question": "在社交场合中，你经常会感到",
+      "chosenOption": "B",
+      "dimension": "E"
+    },
+    {
+      "questionIndex": 60,
+      "question": "要做许多人也做的事，你比较喜欢",
+      "chosenOption": "B",
+      "dimension": "N"
+    },
+    {
+      "questionIndex": 61,
+      "question": "你刚认识的朋友能否说出你的兴趣？",
+      "chosenOption": "B",
+      "dimension": "I"
+    },
+    {
+      "questionIndex": 62,
+      "question": "你通常较喜欢的科目是",
+      "chosenOption": "A",
+      "dimension": "N"
+    },
+    {
+      "questionIndex": 63,
+      "question": "哪个是较高的赞誉，或称许为？",
+      "chosenOption": "B",
+      "dimension": "T"
+    },
+    {
+      "questionIndex": 64,
+      "question": "你认为按照程序表做事",
+      "chosenOption": "B",
+      "dimension": "J"
+    },
+    {
+      "questionIndex": 65,
+      "question": "和一群人在一起，你通常会选",
+      "chosenOption": "A",
+      "dimension": "I"
+    },
+    {
+      "questionIndex": 66,
+      "question": "在社交聚会上，你会",
+      "chosenOption": "B",
+      "dimension": "I"
+    },
+    {
+      "questionIndex": 67,
+      "question": "把周末期间要完成的事列成清单，这个主意会",
+      "chosenOption": "A",
+      "dimension": "J"
+    },
+    {
+      "questionIndex": 68,
+      "question": "哪个是较高的赞誉，或称许为",
+      "chosenOption": "B",
+      "dimension": "F"
+    },
+    {
+      "questionIndex": 69,
+      "question": "你通常喜欢",
+      "chosenOption": "B",
+      "dimension": "P"
+    },
+    {
+      "questionIndex": 70,
+      "question": "总的说来，要做一个大型作业时，你会选",
+      "chosenOption": "B",
+      "dimension": "J"
+    },
+    {
+      "questionIndex": 71,
+      "question": "你能否滔滔不绝地与人聊天",
+      "chosenOption": "B",
+      "dimension": "E"
+    },
+    {
+      "questionIndex": 72,
+      "question": "你会",
+      "chosenOption": "A",
+      "dimension": "S"
+    },
+    {
+      "questionIndex": 73,
+      "question": "为乐趣而阅读时，你会",
+      "chosenOption": "A",
+      "dimension": "N"
+    },
+    {
+      "questionIndex": 74,
+      "question": "你宁愿替哪一类上司（或者老师）工作？",
+      "chosenOption": "B",
+      "dimension": "N"
+    },
+    {
+      "questionIndex": 75,
+      "question": "你做事多数是",
+      "chosenOption": "B",
+      "dimension": "J"
+    },
+    {
+      "questionIndex": 76,
+      "question": "你是否",
+      "chosenOption": "B",
+      "dimension": "I"
+    },
+    {
+      "questionIndex": 77,
+      "question": "要做决定时，你认为比较重要的是",
+      "chosenOption": "A",
+      "dimension": "T"
+    },
+    {
+      "questionIndex": 78,
+      "question": "在下列每一对词语中，哪一个词语更合你心意？",
+      "chosenOption": "B",
+      "dimension": "S"
+    },
+    {
+      "questionIndex": 79,
+      "question": "在下列每一对词语中，哪一个词语更合你心意？",
+      "chosenOption": "A",
+      "dimension": "F"
+    },
+    {
+      "questionIndex": 80,
+      "question": "在下列每一对词语中，哪一个词语更合你心意？",
+      "chosenOption": "B",
+      "dimension": "F"
+    },
+    {
+      "questionIndex": 81,
+      "question": "在下列每一对词语中，哪一个词语更合你心意？",
+      "chosenOption": "B",
+      "dimension": "N"
+    },
+    {
+      "questionIndex": 82,
+      "question": "在下列每一对词语中，哪一个词语更合你心意？",
+      "chosenOption": "A",
+      "dimension": "N"
+    },
+    {
+      "questionIndex": 83,
+      "question": "在下列每一对词语中，哪一个词语更合你心意？",
+      "chosenOption": "A",
+      "dimension": "F"
+    },
+    {
+      "questionIndex": 84,
+      "question": "在下列每一对词语中，哪一个词语更合你心意？",
+      "chosenOption": "A",
+      "dimension": "T"
+    },
+    {
+      "questionIndex": 85,
+      "question": "在下列每一对词语中，哪一个词语更合你心意？",
+      "chosenOption": "B",
+      "dimension": "N"
+    },
+    {
+      "questionIndex": 86,
+      "question": "在下列每一对词语中，哪一个词语更合你心意？",
+      "chosenOption": "A",
+      "dimension": "N"
+    },
+    {
+      "questionIndex": 87,
+      "question": "在下列每一对词语中，哪一个词语更合你心意？",
+      "chosenOption": "B",
+      "dimension": "T"
+    },
+    {
+      "questionIndex": 88,
+      "question": "在下列每一对词语中，哪一个词语更合你心意？",
+      "chosenOption": "B",
+      "dimension": "F"
+    },
+    {
+      "questionIndex": 89,
+      "question": "在下列每一对词语中，哪一个词语更合你心意？",
+      "chosenOption": "B",
+      "dimension": "N"
+    },
+    {
+      "questionIndex": 90,
+      "question": "在下列每一对词语中，哪一个词语更合你心意？",
+      "chosenOption": "A",
+      "dimension": "F"
+    },
+    {
+      "questionIndex": 91,
+      "question": "在下列每一对词语中，哪一个词语更合你心意？",
+      "chosenOption": "B",
+      "dimension": "F"
+    },
+    {
+      "questionIndex": 92,
+      "question": "在下列每一对词语中，哪一个词语更合你心意？",
+      "chosenOption": "B",
+      "dimension": "N"
+    }
+  ]
+}

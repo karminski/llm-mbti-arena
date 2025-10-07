@@ -9,18 +9,20 @@ import { APIClientOptions } from './types.js';
 export class APIClient {
   private client: OpenAI;
   private modelName: string;
-  private maxRetries: number = 3;
+  private maxRetries: number;
 
   constructor(options: APIClientOptions) {
     this.client = new OpenAI({
       apiKey: options.apiKey,
       baseURL: options.apiUrl,
+      timeout: 30000, // 30 seconds timeout
       defaultHeaders: {
         'HTTP-Referer': 'https://github.com/llm-mbti-arena',
         'X-Title': 'LLM MBTI Arena',
       },
     });
     this.modelName = options.modelName;
+    this.maxRetries = options.maxRetries ?? 3;
   }
 
   /**
@@ -49,8 +51,7 @@ export class APIClient {
             },
           ],
           temperature: 0.7,
-          max_tokens: 50, // Increased to accommodate JSON format
-          response_format: { type: 'json_object' }, // Force JSON output if supported
+          max_tokens: 5000, // Enough for JSON with markdown wrapper
         });
 
         const content = response.choices[0]?.message?.content;
@@ -62,11 +63,10 @@ export class APIClient {
         return choice;
       } catch (error) {
         const isLastAttempt = attempt === this.maxRetries;
-        
+
         if (isLastAttempt) {
           throw new Error(
-            `Failed to get response after ${this.maxRetries} attempts: ${
-              error instanceof Error ? error.message : String(error)
+            `Failed to get response after ${this.maxRetries} attempts: ${error instanceof Error ? error.message : String(error)
             }`
           );
         }
@@ -75,7 +75,7 @@ export class APIClient {
         console.error(
           `[Retry ${attempt}/${this.maxRetries}] API call failed, retrying...`
         );
-        
+
         // Wait before retrying (exponential backoff)
         await this.sleep(1000 * attempt);
       }
@@ -103,57 +103,39 @@ A. ${choiceA}
 B. ${choiceB}
 
 请以 JSON 格式回答，只包含你的选择：
-{"choice": "A"} 或 {"choice": "B"}`;
+{"choice": "A"} 或 {"choice": "B"}
+只需要输出JSON, 不要输出其他任何内容`;
   }
 
   /**
    * Parse the model's response to extract A or B
+   * Simple string matching approach for reliability
    * @param response - Raw response from the model
    * @returns 'A' or 'B'
    * @throws Error if response cannot be parsed
    */
   private parseResponse(response: string): 'A' | 'B' {
-    const trimmed = response.trim();
+    const content = response.trim();
 
-    // Try to parse as JSON first
-    try {
-      // Extract JSON from response (handle cases where model adds extra text)
-      const jsonMatch = trimmed.match(/\{[^}]*"choice"\s*:\s*"[AB]"[^}]*\}/i);
-      if (jsonMatch) {
-        const parsed = JSON.parse(jsonMatch[0]);
-        const choice = parsed.choice?.toUpperCase();
-        if (choice === 'A' || choice === 'B') {
-          return choice;
-        }
-      }
-    } catch (e) {
-      // JSON parsing failed, fall through to other methods
-    }
+    // Simple string matching: look for exact patterns
+    const hasChoiceA = content.includes('{"choice": "A"}') || content.includes('{"choice":"A"}');
+    const hasChoiceB = content.includes('{"choice": "B"}') || content.includes('{"choice":"B"}');
 
-    // Fallback: Direct match
-    const normalized = trimmed.toUpperCase();
-    if (normalized === 'A' || normalized === 'A.') {
+    // Check for case-insensitive variants
+    const hasChoiceALower = content.includes('{"choice": "a"}') || content.includes('{"choice":"a"}');
+    const hasChoiceBLower = content.includes('{"choice": "b"}') || content.includes('{"choice":"b"}');
+
+    if (hasChoiceA || hasChoiceALower) {
       return 'A';
     }
-    if (normalized === 'B' || normalized === 'B.') {
+
+    if (hasChoiceB || hasChoiceBLower) {
       return 'B';
     }
 
-    // Fallback: Fuzzy matching - look for A or B in the response
-    // Use word boundary to avoid matching A/B in other words
-    const hasA = /\bA\b/.test(normalized);
-    const hasB = /\bB\b/.test(normalized);
-
-    if (hasA && !hasB) {
-      return 'A';
-    }
-    if (hasB && !hasA) {
-      return 'B';
-    }
-
-    // Cannot determine
+    // If no match found, throw error
     throw new Error(
-      `Unable to parse response: "${response}". Expected JSON format {"choice": "A"} or {"choice": "B"}.`
+      `Unable to find valid choice in response: "${response}". Expected format: {"choice": "A"} or {"choice": "B"}.`
     );
   }
 

@@ -78,6 +78,7 @@ export interface APIClientOptions {
   apiUrl: string;
   apiKey: string;
   modelName: string;
+  maxRetries?: number;
 }
 
 // Report options

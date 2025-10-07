@@ -44,7 +44,6 @@ temp/
 test-report.json
 final-report.json
 *.test.json
-benchmark-result/
 
 # Debug files
 test-*.mjs

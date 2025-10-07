@@ -30,6 +30,7 @@ async function main() {
     .option('--bench', 'Run the MBTI benchmark test')
     .option('--json-report', 'Output test results in JSON format')
     .option('-c, --concurrency <number>', 'Number of concurrent requests (default: 5)', '5')
+    .option('-r, --retries <number>', 'Number of retries on API failure (default: 3)', '3')
     .helpOption('--help', 'Display help information');
 
   // Add help text
@@ -47,6 +48,8 @@ Examples:
   $ llmmbtibenchmark --bench --json-report
   $ llmmbtibenchmark --bench --concurrency 10
   $ llmmbtibenchmark --bench -c 3
+  $ llmmbtibenchmark --bench --retries 5
+  $ llmmbtibenchmark --bench -r 5 -c 10
 `);
 
   program.parse(process.argv);
@@ -66,7 +69,11 @@ Examples:
       if (isNaN(concurrency) || concurrency < 1) {
         throw new Error('Concurrency must be a positive integer');
       }
-      await runBenchmark(options.jsonReport, concurrency);
+      const retries = parseInt(options.retries, 10);
+      if (isNaN(retries) || retries < 1) {
+        throw new Error('Retries must be a positive integer');
+      }
+      await runBenchmark(options.jsonReport, concurrency, retries);
     } catch (error) {
       handleError(error);
       process.exit(1);
@@ -80,7 +87,7 @@ Examples:
 /**
  * Run the MBTI benchmark test
  */
-async function runBenchmark(jsonReport: boolean = false, concurrency: number = 5) {
+async function runBenchmark(jsonReport: boolean = false, concurrency: number = 5, retries: number = 3) {
   // Load and validate configuration
   console.error(chalk.gray('加载配置...'));
   const config = loadConfig();
@@ -96,6 +103,7 @@ async function runBenchmark(jsonReport: boolean = false, concurrency: number = 5
     apiUrl: config.apiUrl,
     apiKey: config.apiKey,
     modelName: config.modelName,
+    maxRetries: retries,
   });
 
   const calculator = new MBTICalculator();

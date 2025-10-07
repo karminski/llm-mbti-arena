@@ -36,6 +36,7 @@ export class TestRunner {
   /**
    * Run the complete MBTI test
    * @returns TestResult with all answers and personality analysis
+   * @throws Error if a question fails after 3 retries
    */
   async run(): Promise<TestResult> {
     const answers: AnswerRecord[] = new Array(this.questions.length);
@@ -44,33 +45,41 @@ export class TestRunner {
     console.error(chalk.bold.cyan('\n开始 MBTI 测试...\n'));
     console.error(chalk.gray(`并发数: ${this.concurrency}\n`));
 
-    // Process questions with concurrency control
-    await this.processWithConcurrency(answers, (completed) => {
-      completedCount = completed;
-      // Update progress display
-      this.progressRenderer.render({
-        currentQuestion: completedCount,
-        totalQuestions: this.questions.length,
-        scores: this.calculator.getScores(),
-        currentType: this.calculator.getCurrentType(),
+    try {
+      // Process questions with concurrency control
+      await this.processWithConcurrency(answers, (completed) => {
+        completedCount = completed;
+        // Update progress display
+        this.progressRenderer.render({
+          currentQuestion: completedCount,
+          totalQuestions: this.questions.length,
+          scores: this.calculator.getScores(),
+          currentType: this.calculator.getCurrentType(),
+        });
       });
-    });
 
-    // Finalize progress display
-    this.progressRenderer.finalize();
+      // Finalize progress display
+      this.progressRenderer.finalize();
 
-    // Generate final result
-    const personalityResult = this.calculator.getResult();
-    const testTime = new Date().toISOString();
+      // Generate final result
+      const personalityResult = this.calculator.getResult();
+      const testTime = new Date().toISOString();
 
-    const testResult: TestResult = {
-      modelName: this.modelName,
-      testTime,
-      answers,
-      personalityResult,
-    };
+      const testResult: TestResult = {
+        modelName: this.modelName,
+        testTime,
+        answers,
+        personalityResult,
+      };
 
-    return testResult;
+      return testResult;
+    } catch (error) {
+      // Finalize progress display even on error
+      this.progressRenderer.finalize();
+      
+      // Re-throw the error to be handled by the caller
+      throw error;
+    }
   }
 
   /**
@@ -82,9 +91,15 @@ export class TestRunner {
   ): Promise<void> {
     let currentIndex = 0;
     let completedCount = 0;
+    let shouldAbort = false;
     const inProgress = new Set<Promise<void>>();
 
     const processQuestion = async (index: number): Promise<void> => {
+      // Check if we should abort before processing
+      if (shouldAbort) {
+        return;
+      }
+
       const question = this.questions[index];
 
       try {
@@ -115,6 +130,23 @@ export class TestRunner {
         // Handle errors during question processing
         const errorMessage = error instanceof Error ? error.message : String(error);
         
+        // Check if this is a retry exhaustion error (after 3 attempts)
+        if (errorMessage.includes('Failed to get response after')) {
+          console.error(
+            chalk.red(
+              `\n[错误] 题目 ${index + 1} 重试 3 次后仍然失败: ${errorMessage}`
+            )
+          );
+          console.error(chalk.red('终止当前模型测试...\n'));
+          
+          // Set abort flag to stop processing new questions
+          shouldAbort = true;
+          
+          // Throw error to propagate to the main run() method
+          throw new Error(`Question ${index + 1} failed after 3 retries: ${errorMessage}`);
+        }
+        
+        // For other errors, log and continue
         console.error(
           chalk.yellow(
             `\n[警告] 题目 ${index + 1} 处理失败: ${errorMessage}`
@@ -136,21 +168,30 @@ export class TestRunner {
     };
 
     // Start initial batch
-    while (currentIndex < this.questions.length && inProgress.size < this.concurrency) {
+    while (currentIndex < this.questions.length && inProgress.size < this.concurrency && !shouldAbort) {
       const promise = processQuestion(currentIndex++);
       inProgress.add(promise);
       promise.finally(() => inProgress.delete(promise));
     }
 
     // Continue processing as tasks complete
-    while (inProgress.size > 0 || currentIndex < this.questions.length) {
+    while (inProgress.size > 0 || (currentIndex < this.questions.length && !shouldAbort)) {
       // Wait for at least one task to complete
       if (inProgress.size > 0) {
-        await Promise.race(inProgress);
+        try {
+          await Promise.race(inProgress);
+        } catch (error) {
+          // If a critical error occurred, stop processing
+          if (shouldAbort) {
+            // Wait for all in-progress tasks to complete
+            await Promise.allSettled(inProgress);
+            throw error;
+          }
+        }
       }
 
-      // Start new tasks to maintain concurrency level
-      while (currentIndex < this.questions.length && inProgress.size < this.concurrency) {
+      // Start new tasks to maintain concurrency level (only if not aborting)
+      while (currentIndex < this.questions.length && inProgress.size < this.concurrency && !shouldAbort) {
         const promise = processQuestion(currentIndex++);
         inProgress.add(promise);
         promise.finally(() => inProgress.delete(promise));

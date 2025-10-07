@@ -1,0 +1,88 @@
+# 批量模式模型列表示例
+# 每行一个模型名称，以 # 开头的行为注释
+
+# OpenAI 模型
+openai/gpt-oss-120b
+openai/o3
+openai/o3-mini-high
+openai/o3-mini
+openai/o4-mini
+openai/o4-mini-high
+openai/gpt-4.1-mini
+openai/gpt-4o-mini
+openai/gpt-4o-2024-11-20
+openai/gpt-5-pro
+openai/gpt-5
+openai/gpt-5-mini
+openai/gpt-5-nano
+
+# Anthropic 模型
+anthropic/claude-3.5-sonnet
+anthropic/claude-sonnet-4.5
+anthropic/claude-sonnet-4
+anthropic/claude-3.7-sonnet:thinking
+anthropic/claude-3.7-sonnet
+anthropic/claude-opus-4.1
+anthropic/claude-opus-4
+
+# Google 模型
+google/gemini-2.5-pro
+google/gemini-2.5-flash
+google/gemini-2.5-flash-lite
+google/gemma-3-12b-it
+
+# Grok 模型 
+x-ai/grok-4-fast
+x-ai/grok-code-fast-1
+x-ai/grok-4
+x-ai/grok-3-mini
+x-ai/grok-3
+
+# Llama 模型
+meta-llama/llama-4-maverick
+meta-llama/llama-4-scout
+meta-llama/llama-3.3-70b-instruct
+mistralai/mistral-small-3.2-24b-instruct
+
+# Mistral 模型
+mistralai/mistral-medium-3.1
+mistralai/codestral-2508
+mistralai/devstral-medium
+mistralai/devstral-small
+mistralai/mistral-nemo
+
+# DeepSeek 模型
+deepseek/deepseek-v3.2-exp
+deepseek/deepseek-v3.1-terminus
+deepseek/deepseek-chat-v3.1
+deepseek/deepseek-r1-0528
+deepseek/deepseek-chat-v3-0324
+deepseek/deepseek-r1
+deepseek/deepseek-chat
+
+# Qwen 模型
+qwen/qwen3-max
+qwen/qwen3-coder-plus
+qwen/qwen3-coder-flash
+qwen/qwen3-next-80b-a3b-thinking
+qwen/qwen3-next-80b-a3b-instruct
+qwen/qwen3-30b-a3b-thinking-2507
+qwen/qwen3-coder-30b-a3b-instruct
+qwen/qwen3-30b-a3b-instruct-2507
+qwen/qwen3-235b-a22b-thinking-2507
+qwen/qwen3-coder
+qwen/qwen3-235b-a22b-2507
+
+# Moonshot 模型
+moonshotai/kimi-k2-0905
+moonshotai/kimi-k2
+
+
+# Z.AI 模型 
+z-ai/glm-4.6
+z-ai/glm-4.5
+z-ai/glm-4.5-air
+
+
+# Minimax 模型
+minimax/minimax-m1

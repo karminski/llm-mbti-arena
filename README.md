@@ -103,6 +103,7 @@ llmmbtibenchmark [options]
 | `-b, --bench` | 启动 MBTI 测试 |
 | `-j, --json-report` | 输出 JSON 格式的测试报告（需与 --bench 一起使用） |
 | `-c, --concurrency <number>` | 并发请求数量（默认：5） |
+| `-r, --retries <number>` | API 调用失败时的重试次数（默认：3） |
 
 ### 基本使用
 
@@ -138,6 +139,19 @@ llmmbtibenchmark --bench --concurrency 10
 
 # 或使用短选项
 llmmbtibenchmark --bench -c 10
+```
+
+#### 6. 自定义重试次数
+
+```bash
+# 设置 API 失败时重试 5 次
+llmmbtibenchmark --bench --retries 5
+
+# 或使用短选项
+llmmbtibenchmark --bench -r 5
+
+# 组合使用多个参数
+llmmbtibenchmark --bench -c 10 -r 5
 ```
 
 ### 开发模式
@@ -291,8 +305,9 @@ llm-mbti-arena/
 
 **解决方案**：
 - 检查网络连接
-- 工具会自动重试（最多 3 次）
+- 工具会自动重试（默认 3 次，可通过 `-r` 参数调整）
 - 如果持续失败，该题目会被跳过
+- 对于不稳定的网络环境，可以增加重试次数：`llmmbtibenchmark --bench -r 5`
 
 ## 技术栈
 
