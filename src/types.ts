@@ -86,3 +86,69 @@ export interface ReportOptions {
   format: 'console' | 'json';
   outputPath?: string;
 }
+
+// ============================================
+// Visualization & Summary Types
+// ============================================
+
+// Benchmark result structure (from JSON files)
+export interface BenchmarkResult {
+  modelName: string;
+  testTime: string;
+  personalityType: string;
+  percentages: {
+    E_I: { E: number; I: number };
+    S_N: { S: number; N: number };
+    T_F: { T: number; F: number };
+    J_P: { J: number; P: number };
+  };
+  answers?: Array<{
+    questionIndex: number;
+    question: string;
+    chosenOption: 'A' | 'B';
+    dimension: string;
+  }>;
+}
+
+// Model summary for visualization
+export interface ModelSummary {
+  modelName: string;
+  provider: string;
+  personalityType: string;
+  testTime: string;
+  dimensions: {
+    E: number;
+    I: number;
+    S: number;
+    N: number;
+    T: number;
+    F: number;
+    J: number;
+    P: number;
+  };
+  filePath?: string;
+}
+
+// Summary data structure
+export interface SummaryData {
+  generatedAt: string;
+  totalModels: number;
+  models: ModelSummary[];
+  mbtiDistribution: Record<string, number>;
+  providerDistribution: Record<string, number>;
+}
+
+// Filter options for HTML page
+export interface Filters {
+  mbtiType?: string;
+  provider?: string;
+  search?: string;
+}
+
+// Chart configuration
+export interface ChartConfig {
+  width: number;
+  height: number;
+  backgroundColor: string;
+  chartType: 'radar' | 'scatter';
+}

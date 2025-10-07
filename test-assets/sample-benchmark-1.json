@@ -1,0 +1,37 @@
+{
+  "modelName": "test-provider/test-model-1",
+  "testTime": "2025-01-01T10:00:00.000Z",
+  "personalityType": "ENTJ",
+  "percentages": {
+    "E_I": {
+      "E": 65,
+      "I": 35
+    },
+    "S_N": {
+      "S": 40,
+      "N": 60
+    },
+    "T_F": {
+      "T": 70,
+      "F": 30
+    },
+    "J_P": {
+      "J": 55,
+      "P": 45
+    }
+  },
+  "answers": [
+    {
+      "questionIndex": 0,
+      "question": "Sample question 1",
+      "chosenOption": "A",
+      "dimension": "E_I"
+    },
+    {
+      "questionIndex": 1,
+      "question": "Sample question 2",
+      "chosenOption": "B",
+      "dimension": "S_N"
+    }
+  ]
+}

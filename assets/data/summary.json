@@ -1,0 +1,1063 @@
+{
+  "generatedAt": "2025-10-07T18:46:39.696Z",
+  "totalModels": 61,
+  "models": [
+    {
+      "modelName": "anthropic/claude-3.5-sonnet",
+      "provider": "anthropic",
+      "personalityType": "INTJ",
+      "testTime": "2025-10-07T13:27:48.746Z",
+      "dimensions": {
+        "E": 24,
+        "I": 76,
+        "S": 33,
+        "N": 67,
+        "T": 61,
+        "F": 39,
+        "J": 100,
+        "P": 0
+      },
+      "filePath": "benchmark-result\\anthropic_claude-3.5-sonnet_2025-10-07T13-27-18-859Z.json"
+    },
+    {
+      "modelName": "anthropic/claude-3.7-sonnet",
+      "provider": "anthropic",
+      "personalityType": "INFJ",
+      "testTime": "2025-10-07T13:29:14.248Z",
+      "dimensions": {
+        "E": 33,
+        "I": 67,
+        "S": 38,
+        "N": 62,
+        "T": 50,
+        "F": 50,
+        "J": 95,
+        "P": 5
+      },
+      "filePath": "benchmark-result\\anthropic_claude-3.7-sonnet_2025-10-07T13-28-51-457Z.json"
+    },
+    {
+      "modelName": "anthropic/claude-3.7-sonnet:thinking",
+      "provider": "anthropic",
+      "personalityType": "INFJ",
+      "testTime": "2025-10-07T13:28:51.398Z",
+      "dimensions": {
+        "E": 43,
+        "I": 57,
+        "S": 30,
+        "N": 70,
+        "T": 48,
+        "F": 52,
+        "J": 86,
+        "P": 14
+      },
+      "filePath": "benchmark-result\\anthropic_claude-3.7-sonnet_thinking_2025-10-07T13-28-29-730Z.json"
+    },
+    {
+      "modelName": "anthropic/claude-opus-4.1",
+      "provider": "anthropic",
+      "personalityType": "INTJ",
+      "testTime": "2025-10-07T15:31:50.916Z",
+      "dimensions": {
+        "E": 48,
+        "I": 52,
+        "S": 33,
+        "N": 67,
+        "T": 61,
+        "F": 39,
+        "J": 95,
+        "P": 5
+      },
+      "filePath": "benchmark-result\\anthropic_claude-opus-4.1_2025-10-07T15-30-23-893Z.json"
+    },
+    {
+      "modelName": "anthropic/claude-opus-4",
+      "provider": "anthropic",
+      "personalityType": "INTJ",
+      "testTime": "2025-10-07T15:33:05.265Z",
+      "dimensions": {
+        "E": 38,
+        "I": 62,
+        "S": 37,
+        "N": 63,
+        "T": 61,
+        "F": 39,
+        "J": 91,
+        "P": 9
+      },
+      "filePath": "benchmark-result\\anthropic_claude-opus-4_2025-10-07T15-31-50-969Z.json"
+    },
+    {
+      "modelName": "anthropic/claude-sonnet-4.5",
+      "provider": "anthropic",
+      "personalityType": "ENTJ",
+      "testTime": "2025-10-07T15:29:36.942Z",
+      "dimensions": {
+        "E": 71,
+        "I": 29,
+        "S": 11,
+        "N": 89,
+        "T": 65,
+        "F": 35,
+        "J": 95,
+        "P": 5
+      },
+      "filePath": "benchmark-result\\anthropic_claude-sonnet-4.5_2025-10-07T15-28-50-522Z.json"
+    },
+    {
+      "modelName": "anthropic/claude-sonnet-4",
+      "provider": "anthropic",
+      "personalityType": "INFJ",
+      "testTime": "2025-10-07T15:30:23.838Z",
+      "dimensions": {
+        "E": 48,
+        "I": 52,
+        "S": 19,
+        "N": 81,
+        "T": 43,
+        "F": 57,
+        "J": 95,
+        "P": 5
+      },
+      "filePath": "benchmark-result\\anthropic_claude-sonnet-4_2025-10-07T15-29-36-996Z.json"
+    },
+    {
+      "modelName": "deepseek/deepseek-chat-v3-0324",
+      "provider": "deepseek",
+      "personalityType": "INTJ",
+      "testTime": "2025-10-07T13:41:54.212Z",
+      "dimensions": {
+        "E": 10,
+        "I": 90,
+        "S": 19,
+        "N": 81,
+        "T": 61,
+        "F": 39,
+        "J": 77,
+        "P": 23
+      },
+      "filePath": "benchmark-result\\deepseek_deepseek-chat-v3-0324_2025-10-07T13-41-19-536Z.json"
+    },
+    {
+      "modelName": "deepseek/deepseek-chat-v3.1",
+      "provider": "deepseek",
+      "personalityType": "INTJ",
+      "testTime": "2025-10-07T13:40:49.419Z",
+      "dimensions": {
+        "E": 10,
+        "I": 90,
+        "S": 26,
+        "N": 74,
+        "T": 61,
+        "F": 39,
+        "J": 73,
+        "P": 27
+      },
+      "filePath": "benchmark-result\\deepseek_deepseek-chat-v3.1_2025-10-07T13-40-23-993Z.json"
+    },
+    {
+      "modelName": "deepseek/deepseek-chat",
+      "provider": "deepseek",
+      "personalityType": "INTJ",
+      "testTime": "2025-10-07T13:42:22.845Z",
+      "dimensions": {
+        "E": 19,
+        "I": 81,
+        "S": 26,
+        "N": 74,
+        "T": 52,
+        "F": 48,
+        "J": 73,
+        "P": 27
+      },
+      "filePath": "benchmark-result\\deepseek_deepseek-chat_2025-10-07T13-42-05-863Z.json"
+    },
+    {
+      "modelName": "deepseek/deepseek-r1-0528",
+      "provider": "deepseek",
+      "personalityType": "ENTJ",
+      "testTime": "2025-10-07T16:03:47.058Z",
+      "dimensions": {
+        "E": 81,
+        "I": 19,
+        "S": 37,
+        "N": 63,
+        "T": 65,
+        "F": 35,
+        "J": 86,
+        "P": 14
+      },
+      "filePath": "benchmark-result\\deepseek_deepseek-r1-0528_2025-10-07T15-59-06-144Z.json"
+    },
+    {
+      "modelName": "deepseek/deepseek-r1",
+      "provider": "deepseek",
+      "personalityType": "INFJ",
+      "testTime": "2025-10-07T16:45:55.567Z",
+      "dimensions": {
+        "E": 19,
+        "I": 81,
+        "S": 33,
+        "N": 67,
+        "T": 48,
+        "F": 52,
+        "J": 73,
+        "P": 27
+      },
+      "filePath": "benchmark-result\\deepseek_deepseek-r1_2025-10-07T16-42-53-562Z.json"
+    },
+    {
+      "modelName": "deepseek/deepseek-v3.1-terminus",
+      "provider": "deepseek",
+      "personalityType": "INTJ",
+      "testTime": "2025-10-07T13:40:23.942Z",
+      "dimensions": {
+        "E": 14,
+        "I": 86,
+        "S": 26,
+        "N": 74,
+        "T": 65,
+        "F": 35,
+        "J": 77,
+        "P": 23
+      },
+      "filePath": "benchmark-result\\deepseek_deepseek-v3.1-terminus_2025-10-07T13-40-01-367Z.json"
+    },
+    {
+      "modelName": "deepseek/deepseek-v3.2-exp",
+      "provider": "deepseek",
+      "personalityType": "INTJ",
+      "testTime": "2025-10-07T15:34:08.670Z",
+      "dimensions": {
+        "E": 14,
+        "I": 86,
+        "S": 30,
+        "N": 70,
+        "T": 70,
+        "F": 30,
+        "J": 86,
+        "P": 14
+      },
+      "filePath": "benchmark-result\\deepseek_deepseek-v3.2-exp_2025-10-07T15-33-19-478Z.json"
+    },
+    {
+      "modelName": "google/gemini-2.5-flash-lite",
+      "provider": "google",
+      "personalityType": "ENTJ",
+      "testTime": "2025-10-07T13:30:42.022Z",
+      "dimensions": {
+        "E": 52,
+        "I": 48,
+        "S": 26,
+        "N": 74,
+        "T": 78,
+        "F": 22,
+        "J": 77,
+        "P": 23
+      },
+      "filePath": "benchmark-result\\google_gemini-2.5-flash-lite_2025-10-07T13-30-28-061Z.json"
+    },
+    {
+      "modelName": "google/gemini-2.5-flash",
+      "provider": "google",
+      "personalityType": "INTJ",
+      "testTime": "2025-10-07T13:30:28.005Z",
+      "dimensions": {
+        "E": 38,
+        "I": 62,
+        "S": 44,
+        "N": 56,
+        "T": 83,
+        "F": 17,
+        "J": 100,
+        "P": 0
+      },
+      "filePath": "benchmark-result\\google_gemini-2.5-flash_2025-10-07T13-30-11-833Z.json"
+    },
+    {
+      "modelName": "google/gemini-2.5-pro",
+      "provider": "google",
+      "personalityType": "ENTJ",
+      "testTime": "2025-10-07T15:59:06.088Z",
+      "dimensions": {
+        "E": 71,
+        "I": 29,
+        "S": 26,
+        "N": 74,
+        "T": 65,
+        "F": 35,
+        "J": 100,
+        "P": 0
+      },
+      "filePath": "benchmark-result\\google_gemini-2.5-pro_2025-10-07T15-56-17-378Z.json"
+    },
+    {
+      "modelName": "google/gemma-3-12b-it",
+      "provider": "google",
+      "personalityType": "INFJ",
+      "testTime": "2025-10-07T13:30:57.245Z",
+      "dimensions": {
+        "E": 33,
+        "I": 67,
+        "S": 30,
+        "N": 70,
+        "T": 43,
+        "F": 57,
+        "J": 59,
+        "P": 41
+      },
+      "filePath": "benchmark-result\\google_gemma-3-12b-it_2025-10-07T13-30-42-079Z.json"
+    },
+    {
+      "modelName": "meta-llama/llama-3.3-70b-instruct",
+      "provider": "meta-llama",
+      "personalityType": "INTJ",
+      "testTime": "2025-10-07T13:38:22.321Z",
+      "dimensions": {
+        "E": 10,
+        "I": 90,
+        "S": 41,
+        "N": 59,
+        "T": 70,
+        "F": 30,
+        "J": 77,
+        "P": 23
+      },
+      "filePath": "benchmark-result\\meta-llama_llama-3.3-70b-instruct_2025-10-07T13-38-01-865Z.json"
+    },
+    {
+      "modelName": "meta-llama/llama-4-maverick",
+      "provider": "meta-llama",
+      "personalityType": "ENFJ",
+      "testTime": "2025-10-07T13:37:46.821Z",
+      "dimensions": {
+        "E": 52,
+        "I": 48,
+        "S": 31,
+        "N": 69,
+        "T": 50,
+        "F": 50,
+        "J": 91,
+        "P": 9
+      },
+      "filePath": "benchmark-result\\meta-llama_llama-4-maverick_2025-10-07T13-37-31-055Z.json"
+    },
+    {
+      "modelName": "meta-llama/llama-4-scout",
+      "provider": "meta-llama",
+      "personalityType": "ENTJ",
+      "testTime": "2025-10-07T13:38:01.808Z",
+      "dimensions": {
+        "E": 57,
+        "I": 43,
+        "S": 30,
+        "N": 70,
+        "T": 52,
+        "F": 48,
+        "J": 64,
+        "P": 36
+      },
+      "filePath": "benchmark-result\\meta-llama_llama-4-scout_2025-10-07T13-37-46-879Z.json"
+    },
+    {
+      "modelName": "minimax/minimax-m1",
+      "provider": "minimax",
+      "personalityType": "ENTJ",
+      "testTime": "2025-10-07T16:50:54.085Z",
+      "dimensions": {
+        "E": 52,
+        "I": 48,
+        "S": 48,
+        "N": 52,
+        "T": 87,
+        "F": 13,
+        "J": 95,
+        "P": 5
+      },
+      "filePath": "benchmark-result\\minimax_minimax-m1_2025-10-07T16-48-00-675Z.json"
+    },
+    {
+      "modelName": "mistralai/codestral-2508",
+      "provider": "mistralai",
+      "personalityType": "INFJ",
+      "testTime": "2025-10-07T13:39:09.230Z",
+      "dimensions": {
+        "E": 38,
+        "I": 62,
+        "S": 30,
+        "N": 70,
+        "T": 48,
+        "F": 52,
+        "J": 68,
+        "P": 32
+      },
+      "filePath": "benchmark-result\\mistralai_codestral-2508_2025-10-07T13-38-55-070Z.json"
+    },
+    {
+      "modelName": "mistralai/devstral-medium",
+      "provider": "mistralai",
+      "personalityType": "INTJ",
+      "testTime": "2025-10-07T13:39:23.350Z",
+      "dimensions": {
+        "E": 43,
+        "I": 57,
+        "S": 30,
+        "N": 70,
+        "T": 61,
+        "F": 39,
+        "J": 91,
+        "P": 9
+      },
+      "filePath": "benchmark-result\\mistralai_devstral-medium_2025-10-07T13-39-09-286Z.json"
+    },
+    {
+      "modelName": "mistralai/devstral-small",
+      "provider": "mistralai",
+      "personalityType": "INTJ",
+      "testTime": "2025-10-07T13:39:37.788Z",
+      "dimensions": {
+        "E": 38,
+        "I": 62,
+        "S": 30,
+        "N": 70,
+        "T": 57,
+        "F": 43,
+        "J": 77,
+        "P": 23
+      },
+      "filePath": "benchmark-result\\mistralai_devstral-small_2025-10-07T13-39-23-408Z.json"
+    },
+    {
+      "modelName": "mistralai/mistral-medium-3.1",
+      "provider": "mistralai",
+      "personalityType": "ENTJ",
+      "testTime": "2025-10-07T13:38:55.015Z",
+      "dimensions": {
+        "E": 57,
+        "I": 43,
+        "S": 30,
+        "N": 70,
+        "T": 65,
+        "F": 35,
+        "J": 86,
+        "P": 14
+      },
+      "filePath": "benchmark-result\\mistralai_mistral-medium-3.1_2025-10-07T13-38-40-089Z.json"
+    },
+    {
+      "modelName": "mistralai/mistral-nemo",
+      "provider": "mistralai",
+      "personalityType": "INFJ",
+      "testTime": "2025-10-07T13:39:53.951Z",
+      "dimensions": {
+        "E": 19,
+        "I": 81,
+        "S": 38,
+        "N": 62,
+        "T": 46,
+        "F": 54,
+        "J": 73,
+        "P": 27
+      },
+      "filePath": "benchmark-result\\mistralai_mistral-nemo_2025-10-07T13-39-37-845Z.json"
+    },
+    {
+      "modelName": "mistralai/mistral-small-3.2-24b-instruct",
+      "provider": "mistralai",
+      "personalityType": "INTJ",
+      "testTime": "2025-10-07T13:38:40.034Z",
+      "dimensions": {
+        "E": 38,
+        "I": 62,
+        "S": 33,
+        "N": 67,
+        "T": 52,
+        "F": 48,
+        "J": 59,
+        "P": 41
+      },
+      "filePath": "benchmark-result\\mistralai_mistral-small-3.2-24b-instruct_2025-10-07T13-38-22-378Z.json"
+    },
+    {
+      "modelName": "moonshotai/kimi-k2-0905",
+      "provider": "moonshotai",
+      "personalityType": "INFJ",
+      "testTime": "2025-10-07T13:46:15.034Z",
+      "dimensions": {
+        "E": 19,
+        "I": 81,
+        "S": 11,
+        "N": 89,
+        "T": 48,
+        "F": 52,
+        "J": 73,
+        "P": 27
+      },
+      "filePath": "benchmark-result\\moonshotai_kimi-k2-0905_2025-10-07T13-45-44-327Z.json"
+    },
+    {
+      "modelName": "moonshotai/kimi-k2",
+      "provider": "moonshotai",
+      "personalityType": "INTJ",
+      "testTime": "2025-10-07T13:46:35.134Z",
+      "dimensions": {
+        "E": 43,
+        "I": 57,
+        "S": 19,
+        "N": 81,
+        "T": 65,
+        "F": 35,
+        "J": 77,
+        "P": 23
+      },
+      "filePath": "benchmark-result\\moonshotai_kimi-k2_2025-10-07T13-46-15-090Z.json"
+    },
+    {
+      "modelName": "openai/gpt-4.1-mini",
+      "provider": "openai",
+      "personalityType": "INTJ",
+      "testTime": "2025-10-07T17:21:27.829Z",
+      "dimensions": {
+        "E": 43,
+        "I": 57,
+        "S": 26,
+        "N": 74,
+        "T": 52,
+        "F": 48,
+        "J": 82,
+        "P": 18
+      },
+      "filePath": "benchmark-result\\openai_gpt-4.1-mini_2025-10-07T17-21-19-728Z.json"
+    },
+    {
+      "modelName": "openai/gpt-4o-2024-11-20",
+      "provider": "openai",
+      "personalityType": "INTJ",
+      "testTime": "2025-10-07T17:21:34.552Z",
+      "dimensions": {
+        "E": 19,
+        "I": 81,
+        "S": 33,
+        "N": 67,
+        "T": 70,
+        "F": 30,
+        "J": 95,
+        "P": 5
+      },
+      "filePath": "benchmark-result\\openai_gpt-4o-2024-11-20_2025-10-07T17-21-27-856Z.json"
+    },
+    {
+      "modelName": "openai/gpt-4o-mini",
+      "provider": "openai",
+      "personalityType": "INFJ",
+      "testTime": "2025-10-07T13:26:24.826Z",
+      "dimensions": {
+        "E": 48,
+        "I": 52,
+        "S": 30,
+        "N": 70,
+        "T": 48,
+        "F": 52,
+        "J": 77,
+        "P": 23
+      },
+      "filePath": "benchmark-result\\openai_gpt-4o-mini_2025-10-07T13-26-08-874Z.json"
+    },
+    {
+      "modelName": "openai/gpt-5-mini",
+      "provider": "openai",
+      "personalityType": "INTJ",
+      "testTime": "2025-10-07T17:30:16.165Z",
+      "dimensions": {
+        "E": 48,
+        "I": 52,
+        "S": 37,
+        "N": 63,
+        "T": 61,
+        "F": 39,
+        "J": 91,
+        "P": 9
+      },
+      "filePath": "benchmark-result\\openai_gpt-5-mini_2025-10-07T17-29-30-251Z.json"
+    },
+    {
+      "modelName": "openai/gpt-5-nano",
+      "provider": "openai",
+      "personalityType": "ENTJ",
+      "testTime": "2025-10-07T17:32:27.732Z",
+      "dimensions": {
+        "E": 81,
+        "I": 19,
+        "S": 37,
+        "N": 63,
+        "T": 65,
+        "F": 35,
+        "J": 95,
+        "P": 5
+      },
+      "filePath": "benchmark-result\\openai_gpt-5-nano_2025-10-07T17-30-16-189Z.json"
+    },
+    {
+      "modelName": "openai/gpt-5-pro",
+      "provider": "openai",
+      "personalityType": "ESTJ",
+      "testTime": "2025-10-07T17:26:33.963Z",
+      "dimensions": {
+        "E": 57,
+        "I": 43,
+        "S": 52,
+        "N": 48,
+        "T": 65,
+        "F": 35,
+        "J": 100,
+        "P": 0
+      },
+      "filePath": "benchmark-result\\openai_gpt-5-pro_2025-10-07T17-21-34-587Z.json"
+    },
+    {
+      "modelName": "openai/gpt-5",
+      "provider": "openai",
+      "personalityType": "ENTJ",
+      "testTime": "2025-10-07T17:49:04.327Z",
+      "dimensions": {
+        "E": 52,
+        "I": 48,
+        "S": 48,
+        "N": 52,
+        "T": 74,
+        "F": 26,
+        "J": 100,
+        "P": 0
+      },
+      "filePath": "benchmark-result\\openai_gpt-5_2025-10-07T17-47-57-440Z.json"
+    },
+    {
+      "modelName": "openai/gpt-oss-120b",
+      "provider": "openai",
+      "personalityType": "ENFJ",
+      "testTime": "2025-10-07T13:22:40.065Z",
+      "dimensions": {
+        "E": 67,
+        "I": 33,
+        "S": 27,
+        "N": 73,
+        "T": 43,
+        "F": 57,
+        "J": 64,
+        "P": 36
+      },
+      "filePath": "benchmark-result\\openai_gpt-oss-120b_2025-10-07T13-20-34-680Z.json"
+    },
+    {
+      "modelName": "openai/gpt-oss-20b",
+      "provider": "openai",
+      "personalityType": "ENFJ",
+      "testTime": "2025-10-07T13:09:32.595Z",
+      "dimensions": {
+        "E": 50,
+        "I": 50,
+        "S": 50,
+        "N": 50,
+        "T": 50,
+        "F": 50,
+        "J": 50,
+        "P": 50
+      },
+      "filePath": "benchmark-result\\openai_gpt-oss-20b_2025-10-07T13-07-48-075Z.json"
+    },
+    {
+      "modelName": "openai/o3-mini-high",
+      "provider": "openai",
+      "personalityType": "ENTJ",
+      "testTime": "2025-10-07T17:16:15.819Z",
+      "dimensions": {
+        "E": 67,
+        "I": 33,
+        "S": 22,
+        "N": 78,
+        "T": 61,
+        "F": 39,
+        "J": 95,
+        "P": 5
+      },
+      "filePath": "benchmark-result\\openai_o3-mini-high_2025-10-07T17-15-17-158Z.json"
+    },
+    {
+      "modelName": "openai/o3-mini",
+      "provider": "openai",
+      "personalityType": "ENTJ",
+      "testTime": "2025-10-07T17:20:23.852Z",
+      "dimensions": {
+        "E": 71,
+        "I": 29,
+        "S": 26,
+        "N": 74,
+        "T": 61,
+        "F": 39,
+        "J": 91,
+        "P": 9
+      },
+      "filePath": "benchmark-result\\openai_o3-mini_2025-10-07T17-16-15-845Z.json"
+    },
+    {
+      "modelName": "openai/o3",
+      "provider": "openai",
+      "personalityType": "ENTJ",
+      "testTime": "2025-10-07T17:02:46.653Z",
+      "dimensions": {
+        "E": 71,
+        "I": 29,
+        "S": 26,
+        "N": 74,
+        "T": 74,
+        "F": 26,
+        "J": 100,
+        "P": 0
+      },
+      "filePath": "benchmark-result\\openai_o3_2025-10-07T17-01-56-414Z.json"
+    },
+    {
+      "modelName": "openai/o4-mini-high",
+      "provider": "openai",
+      "personalityType": "INTJ",
+      "testTime": "2025-10-07T17:21:19.703Z",
+      "dimensions": {
+        "E": 43,
+        "I": 57,
+        "S": 26,
+        "N": 74,
+        "T": 65,
+        "F": 35,
+        "J": 95,
+        "P": 5
+      },
+      "filePath": "benchmark-result\\openai_o4-mini-high_2025-10-07T17-20-51-091Z.json"
+    },
+    {
+      "modelName": "openai/o4-mini",
+      "provider": "openai",
+      "personalityType": "ENTJ",
+      "testTime": "2025-10-07T17:20:51.067Z",
+      "dimensions": {
+        "E": 62,
+        "I": 38,
+        "S": 33,
+        "N": 67,
+        "T": 65,
+        "F": 35,
+        "J": 91,
+        "P": 9
+      },
+      "filePath": "benchmark-result\\openai_o4-mini_2025-10-07T17-20-23-875Z.json"
+    },
+    {
+      "modelName": "qwen/qwen3-235b-a22b-2507",
+      "provider": "qwen",
+      "personalityType": "INFJ",
+      "testTime": "2025-10-07T13:45:44.272Z",
+      "dimensions": {
+        "E": 43,
+        "I": 57,
+        "S": 22,
+        "N": 78,
+        "T": 43,
+        "F": 57,
+        "J": 86,
+        "P": 14
+      },
+      "filePath": "benchmark-result\\qwen_qwen3-235b-a22b-2507_2025-10-07T13-45-21-562Z.json"
+    },
+    {
+      "modelName": "qwen/qwen3-30b-a3b-instruct-2507",
+      "provider": "qwen",
+      "personalityType": "INTJ",
+      "testTime": "2025-10-07T13:44:47.971Z",
+      "dimensions": {
+        "E": 33,
+        "I": 67,
+        "S": 33,
+        "N": 67,
+        "T": 57,
+        "F": 43,
+        "J": 86,
+        "P": 14
+      },
+      "filePath": "benchmark-result\\qwen_qwen3-30b-a3b-instruct-2507_2025-10-07T13-44-31-524Z.json"
+    },
+    {
+      "modelName": "qwen/qwen3-30b-a3b-thinking-2507",
+      "provider": "qwen",
+      "personalityType": "INTJ",
+      "testTime": "2025-10-07T13:44:12.232Z",
+      "dimensions": {
+        "E": 48,
+        "I": 52,
+        "S": 41,
+        "N": 59,
+        "T": 57,
+        "F": 43,
+        "J": 73,
+        "P": 27
+      },
+      "filePath": "benchmark-result\\qwen_qwen3-30b-a3b-thinking-2507_2025-10-07T13-43-49-273Z.json"
+    },
+    {
+      "modelName": "qwen/qwen3-coder-30b-a3b-instruct",
+      "provider": "qwen",
+      "personalityType": "INTJ",
+      "testTime": "2025-10-07T13:44:31.472Z",
+      "dimensions": {
+        "E": 43,
+        "I": 57,
+        "S": 33,
+        "N": 67,
+        "T": 61,
+        "F": 39,
+        "J": 82,
+        "P": 18
+      },
+      "filePath": "benchmark-result\\qwen_qwen3-coder-30b-a3b-instruct_2025-10-07T13-44-12-286Z.json"
+    },
+    {
+      "modelName": "qwen/qwen3-coder-flash",
+      "provider": "qwen",
+      "personalityType": "INTJ",
+      "testTime": "2025-10-07T13:43:20.800Z",
+      "dimensions": {
+        "E": 48,
+        "I": 52,
+        "S": 33,
+        "N": 67,
+        "T": 61,
+        "F": 39,
+        "J": 82,
+        "P": 18
+      },
+      "filePath": "benchmark-result\\qwen_qwen3-coder-flash_2025-10-07T13-43-03-359Z.json"
+    },
+    {
+      "modelName": "qwen/qwen3-coder-plus",
+      "provider": "qwen",
+      "personalityType": "INTJ",
+      "testTime": "2025-10-07T13:43:03.304Z",
+      "dimensions": {
+        "E": 43,
+        "I": 57,
+        "S": 19,
+        "N": 81,
+        "T": 61,
+        "F": 39,
+        "J": 82,
+        "P": 18
+      },
+      "filePath": "benchmark-result\\qwen_qwen3-coder-plus_2025-10-07T13-42-44-331Z.json"
+    },
+    {
+      "modelName": "qwen/qwen3-coder",
+      "provider": "qwen",
+      "personalityType": "INTJ",
+      "testTime": "2025-10-07T13:45:21.510Z",
+      "dimensions": {
+        "E": 38,
+        "I": 62,
+        "S": 19,
+        "N": 81,
+        "T": 57,
+        "F": 43,
+        "J": 82,
+        "P": 18
+      },
+      "filePath": "benchmark-result\\qwen_qwen3-coder_2025-10-07T13-45-01-848Z.json"
+    },
+    {
+      "modelName": "qwen/qwen3-next-80b-a3b-instruct",
+      "provider": "qwen",
+      "personalityType": "INFJ",
+      "testTime": "2025-10-07T13:43:49.218Z",
+      "dimensions": {
+        "E": 38,
+        "I": 62,
+        "S": 30,
+        "N": 70,
+        "T": 39,
+        "F": 61,
+        "J": 91,
+        "P": 9
+      },
+      "filePath": "benchmark-result\\qwen_qwen3-next-80b-a3b-instruct_2025-10-07T13-43-31-451Z.json"
+    },
+    {
+      "modelName": "qwen/qwen3-next-80b-a3b-thinking",
+      "provider": "qwen",
+      "personalityType": "INTJ",
+      "testTime": "2025-10-07T17:49:30.054Z",
+      "dimensions": {
+        "E": 43,
+        "I": 57,
+        "S": 44,
+        "N": 56,
+        "T": 65,
+        "F": 35,
+        "J": 100,
+        "P": 0
+      },
+      "filePath": "benchmark-result\\qwen_qwen3-next-80b-a3b-thinking_2025-10-07T17-49-04-352Z.json"
+    },
+    {
+      "modelName": "x-ai/grok-3-mini",
+      "provider": "x-ai",
+      "personalityType": "ENTJ",
+      "testTime": "2025-10-07T13:37:01.937Z",
+      "dimensions": {
+        "E": 95,
+        "I": 5,
+        "S": 41,
+        "N": 59,
+        "T": 91,
+        "F": 9,
+        "J": 86,
+        "P": 14
+      },
+      "filePath": "benchmark-result\\x-ai_grok-3-mini_2025-10-07T13-36-03-186Z.json"
+    },
+    {
+      "modelName": "x-ai/grok-3",
+      "provider": "x-ai",
+      "personalityType": "ENTJ",
+      "testTime": "2025-10-07T13:37:30.998Z",
+      "dimensions": {
+        "E": 52,
+        "I": 48,
+        "S": 30,
+        "N": 70,
+        "T": 52,
+        "F": 48,
+        "J": 91,
+        "P": 9
+      },
+      "filePath": "benchmark-result\\x-ai_grok-3_2025-10-07T13-37-01-995Z.json"
+    },
+    {
+      "modelName": "x-ai/grok-4-fast",
+      "provider": "x-ai",
+      "personalityType": "ENTJ",
+      "testTime": "2025-10-07T13:31:35.361Z",
+      "dimensions": {
+        "E": 90,
+        "I": 10,
+        "S": 37,
+        "N": 63,
+        "T": 74,
+        "F": 26,
+        "J": 64,
+        "P": 36
+      },
+      "filePath": "benchmark-result\\x-ai_grok-4-fast_2025-10-07T13-30-57-299Z.json"
+    },
+    {
+      "modelName": "x-ai/grok-4",
+      "provider": "x-ai",
+      "personalityType": "ENTJ",
+      "testTime": "2025-10-07T13:36:03.134Z",
+      "dimensions": {
+        "E": 90,
+        "I": 10,
+        "S": 41,
+        "N": 59,
+        "T": 91,
+        "F": 9,
+        "J": 64,
+        "P": 36
+      },
+      "filePath": "benchmark-result\\x-ai_grok-4_2025-10-07T13-32-36-513Z.json"
+    },
+    {
+      "modelName": "x-ai/grok-code-fast-1",
+      "provider": "x-ai",
+      "personalityType": "ENTJ",
+      "testTime": "2025-10-07T13:32:36.460Z",
+      "dimensions": {
+        "E": 90,
+        "I": 10,
+        "S": 41,
+        "N": 59,
+        "T": 87,
+        "F": 13,
+        "J": 64,
+        "P": 36
+      },
+      "filePath": "benchmark-result\\x-ai_grok-code-fast-1_2025-10-07T13-31-35-418Z.json"
+    },
+    {
+      "modelName": "z-ai/glm-4.5-air",
+      "provider": "z-ai",
+      "personalityType": "INTJ",
+      "testTime": "2025-10-07T15:35:32.089Z",
+      "dimensions": {
+        "E": 43,
+        "I": 57,
+        "S": 46,
+        "N": 54,
+        "T": 67,
+        "F": 33,
+        "J": 59,
+        "P": 41
+      },
+      "filePath": "benchmark-result\\z-ai_glm-4.5-air_2025-10-07T15-34-58-411Z.json"
+    },
+    {
+      "modelName": "z-ai/glm-4.5",
+      "provider": "z-ai",
+      "personalityType": "ENTJ",
+      "testTime": "2025-10-07T16:09:30.580Z",
+      "dimensions": {
+        "E": 52,
+        "I": 48,
+        "S": 37,
+        "N": 63,
+        "T": 65,
+        "F": 35,
+        "J": 95,
+        "P": 5
+      },
+      "filePath": "benchmark-result\\z-ai_glm-4.5_2025-10-07T16-07-23-744Z.json"
+    },
+    {
+      "modelName": "z-ai/glm-4.6",
+      "provider": "z-ai",
+      "personalityType": "ENTJ",
+      "testTime": "2025-10-07T17:51:33.517Z",
+      "dimensions": {
+        "E": 57,
+        "I": 43,
+        "S": 15,
+        "N": 85,
+        "T": 61,
+        "F": 39,
+        "J": 95,
+        "P": 5
+      },
+      "filePath": "benchmark-result\\z-ai_glm-4.6_2025-10-07T17-49-30-078Z.json"
+    }
+  ],
+  "mbtiDistribution": {
+    "INTJ": 26,
+    "INFJ": 11,
+    "ENTJ": 20,
+    "ENFJ": 3,
+    "ESTJ": 1
+  },
+  "providerDistribution": {
+    "anthropic": 7,
+    "deepseek": 7,
+    "google": 4,
+    "meta-llama": 3,
+    "minimax": 1,
+    "mistralai": 6,
+    "moonshotai": 2,
+    "openai": 14,
+    "qwen": 9,
+    "x-ai": 5,
+    "z-ai": 3
+  }
+}

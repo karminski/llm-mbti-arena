@@ -1,0 +1,37 @@
+{
+  "modelName": "test-provider/test-model-3",
+  "testTime": "2025-01-03T14:30:00.000Z",
+  "personalityType": "ISTJ",
+  "percentages": {
+    "E_I": {
+      "E": 45,
+      "I": 55
+    },
+    "S_N": {
+      "S": 80,
+      "N": 20
+    },
+    "T_F": {
+      "T": 60,
+      "F": 40
+    },
+    "J_P": {
+      "J": 75,
+      "P": 25
+    }
+  },
+  "answers": [
+    {
+      "questionIndex": 0,
+      "question": "Sample question 1",
+      "chosenOption": "B",
+      "dimension": "E_I"
+    },
+    {
+      "questionIndex": 1,
+      "question": "Sample question 2",
+      "chosenOption": "A",
+      "dimension": "S_N"
+    }
+  ]
+}

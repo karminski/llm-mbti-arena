@@ -1,0 +1,95 @@
+name: Update Visualization
+
+on:
+  push:
+    paths:
+      - 'benchmark-result/**/*.json'
+  workflow_dispatch:
+
+jobs:
+  update-visualization:
+    runs-on: ubuntu-latest
+    
+    permissions:
+      contents: write
+    
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+      
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '18'
+          cache: 'npm'
+      
+      - name: Install dependencies
+        run: npm ci
+      
+      - name: Generate summary data
+        id: generate_summary
+        run: |
+          echo "::group::Generating summary data"
+          npm run generate:summary
+          echo "::endgroup::"
+        continue-on-error: false
+      
+      - name: Generate visualization image
+        id: generate_image
+        run: |
+          echo "::group::Generating visualization image"
+          npm run generate:image
+          echo "::endgroup::"
+        continue-on-error: false
+      
+      - name: Update README
+        id: update_readme
+        run: |
+          echo "::group::Updating README"
+          npm run update:readme
+          echo "::endgroup::"
+        continue-on-error: false
+      
+      - name: Check for changes
+        id: check_changes
+        run: |
+          git diff --quiet assets/data/summary.json assets/images/mbti-distribution.png README.md || echo "changes=true" >> $GITHUB_OUTPUT
+      
+      - name: Commit and push changes
+        if: steps.check_changes.outputs.changes == 'true'
+        run: |
+          git config --local user.email "github-actions[bot]@users.noreply.github.com"
+          git config --local user.name "github-actions[bot]"
+          git add assets/data/summary.json
+          git add assets/images/mbti-distribution.png
+          git add README.md
+          git commit -m "chore: update visualization [skip ci]"
+          git push
+      
+      - name: Log error details on failure
+        if: failure()
+        run: |
+          echo "::error::Visualization update failed"
+          echo "::group::Environment Information"
+          echo "Node version: $(node --version)"
+          echo "NPM version: $(npm --version)"
+          echo "Working directory: $(pwd)"
+          echo "::endgroup::"
+          
+          echo "::group::File System Status"
+          ls -la assets/data/ || echo "assets/data/ not found"
+          ls -la assets/images/ || echo "assets/images/ not found"
+          echo "::endgroup::"
+      
+      - name: Upload error logs on failure
+        if: failure()
+        uses: actions/upload-artifact@v4
+        with:
+          name: error-logs-${{ github.run_number }}
+          path: |
+            npm-debug.log
+            *.log
+          if-no-files-found: ignore
+          retention-days: 7

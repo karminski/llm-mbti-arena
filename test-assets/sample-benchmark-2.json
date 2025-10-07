@@ -1,0 +1,37 @@
+{
+  "modelName": "another-provider/test-model-2",
+  "testTime": "2025-01-02T12:00:00.000Z",
+  "personalityType": "INFP",
+  "percentages": {
+    "E_I": {
+      "E": 30,
+      "I": 70
+    },
+    "S_N": {
+      "S": 35,
+      "N": 65
+    },
+    "T_F": {
+      "T": 25,
+      "F": 75
+    },
+    "J_P": {
+      "J": 40,
+      "P": 60
+    }
+  },
+  "answers": [
+    {
+      "questionIndex": 0,
+      "question": "Sample question 1",
+      "chosenOption": "B",
+      "dimension": "E_I"
+    },
+    {
+      "questionIndex": 1,
+      "question": "Sample question 2",
+      "chosenOption": "A",
+      "dimension": "S_N"
+    }
+  ]
+}

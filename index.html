@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>LLM MBTI Arena - Personality Types of Large Language Models</title>
+  <meta name="description" content="Interactive visualization of MBTI personality types for various Large Language Models">
+  <link rel="stylesheet" href="assets/css/styles.css">
+</head>
+<body>
+  <header>
+    <h1>🤖 LLM MBTI Arena</h1>
+    <p class="subtitle">Personality Types of Large Language Models</p>
+    <p class="description">Explore MBTI test results from 93-question assessments across different AI models</p>
+  </header>
+  
+  <main>
+    <!-- Loading Indicator -->
+    <div id="loading" class="loading">
+      <div class="spinner"></div>
+      <p>Loading data...</p>
+    </div>
+
+    <!-- Error Message -->
+    <div id="error-message" class="error-message" style="display: none;">
+      <p>⚠️ Failed to load data. Please try again later.</p>
+    </div>
+
+    <!-- Chart Section -->
+    <section id="chart-section" class="chart-section" style="display: none;">
+      <h2>MBTI Distribution Radar Chart</h2>
+      <div class="chart-container">
+        <canvas id="mbti-chart"></canvas>
+      </div>
+    </section>
+    
+    <!-- Filters Section -->
+    <section id="filters" class="filters-section" style="display: none;">
+      <h2>Filter Results</h2>
+      <div class="filters-container">
+        <div class="filter-group">
+          <label for="mbti-filter">MBTI Type:</label>
+          <select id="mbti-filter">
+            <option value="">All MBTI Types</option>
+          </select>
+        </div>
+        
+        <div class="filter-group">
+          <label for="provider-filter">Provider:</label>
+          <select id="provider-filter">
+            <option value="">All Providers</option>
+          </select>
+        </div>
+        
+        <div class="filter-group search-group">
+          <label for="search-box">Search Model:</label>
+          <input type="text" id="search-box" placeholder="Search by model name...">
+        </div>
+        
+        <button id="reset-filters" class="btn-reset">Reset Filters</button>
+      </div>
+    </section>
+    
+    <!-- Table Section -->
+    <section id="table-section" class="table-section" style="display: none;">
+      <h2>Model Results</h2>
+      <div class="table-info">
+        <p>Showing <span id="result-count">0</span> models</p>
+      </div>
+      <div class="table-container">
+        <table id="results-table">
+          <thead>
+            <tr>
+              <th data-sort="modelName" class="sortable">
+                Model Name
+                <span class="sort-indicator"></span>
+              </th>
+              <th data-sort="provider" class="sortable">
+                Provider
+                <span class="sort-indicator"></span>
+              </th>
+              <th data-sort="personalityType" class="sortable">
+                MBTI Type
+                <span class="sort-indicator"></span>
+              </th>
+              <th data-sort="E" class="sortable">
+                E-I %
+                <span class="sort-indicator"></span>
+              </th>
+              <th data-sort="S" class="sortable">
+                S-N %
+                <span class="sort-indicator"></span>
+              </th>
+              <th data-sort="T" class="sortable">
+                T-F %
+                <span class="sort-indicator"></span>
+              </th>
+              <th data-sort="J" class="sortable">
+                J-P %
+                <span class="sort-indicator"></span>
+              </th>
+              <th data-sort="testTime" class="sortable">
+                Test Date
+                <span class="sort-indicator"></span>
+              </th>
+            </tr>
+          </thead>
+          <tbody>
+            <!-- Dynamically populated -->
+          </tbody>
+        </table>
+      </div>
+    </section>
+    
+    <!-- Detail Modal -->
+    <div id="detail-modal" class="modal">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h2 id="modal-title">Model Details</h2>
+          <span class="close">&times;</span>
+        </div>
+        <div class="modal-body" id="modal-body">
+          <!-- Dynamically populated -->
+        </div>
+      </div>
+    </div>
+  </main>
+  
+  <footer>
+    <div class="footer-content">
+      <img src="assets/images/kcores-llm-arena-logo-black.png" alt="LLM MBTI Arena Logo" class="footer-logo">
+      <p>LLM MBTI Arena - Powered by MBTI 93-Question Test</p>
+      <p class="footer-links">
+        <a href="https://github.com/yourusername/llm-mbti-arena" target="_blank">GitHub</a> |
+        <a href="README.md">Documentation</a>
+      </p>
+    </div>
+  </footer>
+  
+  <!-- Chart.js Library -->
+  <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.0/dist/chart.umd.min.js"></script>
+  
+  <!-- Application Script -->
+  <script src="assets/js/app.js"></script>
+</body>
+</html>
