@@ -129,14 +129,19 @@ function hideLoading() {
 
 
 /**
- * Create and render radar chart
+ * Create a horizontal bar chart for a dimension pair
+ * @param {string} canvasId - Canvas element ID
  * @param {Array} models - Array of model summary objects
+ * @param {string} leftDim - Left dimension (e.g., 'E')
+ * @param {string} rightDim - Right dimension (e.g., 'I')
+ * @param {string} leftLabel - Left label (e.g., 'Extrovert')
+ * @param {string} rightLabel - Right label (e.g., 'Introvert')
  * @returns {Chart} Chart.js instance
  */
-function createRadarChart(models) {
-  const canvas = document.getElementById('mbti-chart');
+function createDimensionChart(canvasId, models, leftDim, rightDim, leftLabel, rightLabel) {
+  const canvas = document.getElementById(canvasId);
   if (!canvas) {
-    console.error('Chart canvas not found');
+    console.error(`Chart canvas ${canvasId} not found`);
     return null;
   }
 
@@ -145,68 +150,65 @@ function createRadarChart(models) {
   // Limit to first 15 models for readability
   const displayModels = models.slice(0, 15);
   
-  // Prepare datasets
-  const datasets = displayModels.map((model, index) => {
-    const color = COLOR_PALETTE[index % COLOR_PALETTE.length];
-    
-    return {
-      label: model.modelName,
-      data: [
-        model.dimensions.E,  // E-I axis (E side)
-        model.dimensions.N,  // S-N axis (N side)
-        model.dimensions.T,  // T-F axis (T side)
-        model.dimensions.J   // J-P axis (J side)
-      ],
-      backgroundColor: `${color}33`,  // 20% opacity
-      borderColor: color,
-      borderWidth: 2,
-      pointBackgroundColor: color,
-      pointBorderColor: '#fff',
-      pointHoverBackgroundColor: '#fff',
-      pointHoverBorderColor: color,
-      pointRadius: 4,
-      pointHoverRadius: 6
-    };
-  });
+  // Prepare data - convert to diverging bar chart format
+  // Negative values for left dimension, positive for right
+  const labels = displayModels.map(m => m.modelName);
+  const leftData = displayModels.map(m => -m.dimensions[leftDim]);
+  const rightData = displayModels.map(m => m.dimensions[rightDim]);
 
   try {
     const chart = new Chart(ctx, {
-      type: 'radar',
+      type: 'bar',
       data: {
-        labels: [
-          'E (Extrovert)',
-          'N (Intuitive)',
-          'T (Thinking)',
-          'J (Judging)'
-        ],
-        datasets: datasets
+        labels: labels,
+        datasets: [
+          {
+            label: leftLabel,
+            data: leftData,
+            backgroundColor: '#FF6384',
+            borderColor: '#FF6384',
+            borderWidth: 1
+          },
+          {
+            label: rightLabel,
+            data: rightData,
+            backgroundColor: '#36A2EB',
+            borderColor: '#36A2EB',
+            borderWidth: 1
+          }
+        ]
       },
       options: {
+        indexAxis: 'y',
         responsive: true,
         maintainAspectRatio: false,
         scales: {
-          r: {
-            min: 0,
+          x: {
+            min: -100,
             max: 100,
             ticks: {
-              stepSize: 20,
               callback: function(value) {
-                return value + '%';
+                return Math.abs(value) + '%';
               }
             },
-            pointLabels: {
+            grid: {
+              drawOnChartArea: true
+            }
+          },
+          y: {
+            stacked: false,
+            ticks: {
               font: {
-                size: 14,
-                weight: 'bold'
+                size: 10
               }
             }
           }
         },
         plugins: {
           legend: {
-            position: 'bottom',
+            display: true,
+            position: 'top',
             labels: {
-              padding: 15,
               font: {
                 size: 11
               },
@@ -216,81 +218,70 @@ function createRadarChart(models) {
           tooltip: {
             callbacks: {
               label: function(context) {
-                const model = displayModels[context.datasetIndex];
-                const labels = ['E-I', 'S-N', 'T-F', 'J-P'];
-                const dimension = labels[context.dataIndex];
-                return `${model.modelName} (${model.personalityType}): ${context.parsed.r}% ${dimension}`;
+                const model = displayModels[context.dataIndex];
+                const value = Math.abs(context.parsed.x);
+                const dim = context.datasetIndex === 0 ? leftDim : rightDim;
+                return `${context.dataset.label}: ${value}% (${model.personalityType})`;
               }
             }
-          },
-          title: {
-            display: true,
-            text: displayModels.length < models.length 
-              ? `Showing ${displayModels.length} of ${models.length} models`
-              : `All ${models.length} models`,
-            font: {
-              size: 14
-            }
           }
-        },
-        interaction: {
-          mode: 'point',
-          intersect: true
         }
       }
     });
 
-    console.log('Chart created successfully');
+    console.log(`Chart ${canvasId} created successfully`);
     return chart;
   } catch (error) {
-    console.error('Failed to create chart:', error);
-    showError('Failed to render chart. Please refresh the page.');
+    console.error(`Failed to create chart ${canvasId}:`, error);
     return null;
   }
 }
 
 /**
- * Update existing chart with new data
+ * Create all four dimension charts
+ * @param {Array} models - Array of model summary objects
+ * @returns {Object} Object containing all chart instances
+ */
+function createAllCharts(models) {
+  return {
+    ei: createDimensionChart('ei-chart', models, 'E', 'I', 'Extrovert (E)', 'Introvert (I)'),
+    sn: createDimensionChart('sn-chart', models, 'S', 'N', 'Sensing (S)', 'Intuitive (N)'),
+    tf: createDimensionChart('tf-chart', models, 'T', 'F', 'Thinking (T)', 'Feeling (F)'),
+    jp: createDimensionChart('jp-chart', models, 'J', 'P', 'Judging (J)', 'Perceiving (P)')
+  };
+}
+
+/**
+ * Update a single dimension chart with new data
  * @param {Chart} chart - Chart.js instance
  * @param {Array} models - Array of model summary objects
+ * @param {string} leftDim - Left dimension
+ * @param {string} rightDim - Right dimension
  */
-function updateChart(chart, models) {
+function updateDimensionChart(chart, models, leftDim, rightDim) {
   if (!chart) return;
 
   const displayModels = models.slice(0, 15);
   
-  // Update datasets
-  chart.data.datasets = displayModels.map((model, index) => {
-    const color = COLOR_PALETTE[index % COLOR_PALETTE.length];
-    
-    return {
-      label: model.modelName,
-      data: [
-        model.dimensions.E,
-        model.dimensions.N,
-        model.dimensions.T,
-        model.dimensions.J
-      ],
-      backgroundColor: `${color}33`,
-      borderColor: color,
-      borderWidth: 2,
-      pointBackgroundColor: color,
-      pointBorderColor: '#fff',
-      pointHoverBackgroundColor: '#fff',
-      pointHoverBorderColor: color,
-      pointRadius: 4,
-      pointHoverRadius: 6
-    };
-  });
-
-  // Update title
-  if (chart.options.plugins.title) {
-    chart.options.plugins.title.text = displayModels.length < models.length 
-      ? `Showing ${displayModels.length} of ${models.length} models`
-      : `All ${models.length} models`;
-  }
-
+  chart.data.labels = displayModels.map(m => m.modelName);
+  chart.data.datasets[0].data = displayModels.map(m => -m.dimensions[leftDim]);
+  chart.data.datasets[1].data = displayModels.map(m => m.dimensions[rightDim]);
+  
   chart.update();
+}
+
+/**
+ * Update all charts with new data
+ * @param {Object} charts - Object containing all chart instances
+ * @param {Array} models - Array of model summary objects
+ */
+function updateAllCharts(charts, models) {
+  if (!charts) return;
+  
+  updateDimensionChart(charts.ei, models, 'E', 'I');
+  updateDimensionChart(charts.sn, models, 'S', 'N');
+  updateDimensionChart(charts.tf, models, 'T', 'F');
+  updateDimensionChart(charts.jp, models, 'J', 'P');
 }
 
 
@@ -708,7 +699,7 @@ class MBTIArena {
   constructor() {
     this.allModels = [];
     this.filteredModels = [];
-    this.chart = null;
+    this.charts = null;
     this.currentSort = {
       column: null,
       direction: 'asc'
@@ -857,11 +848,11 @@ class MBTIArena {
    * Render all UI components
    */
   render() {
-    // Render or update chart
-    if (this.chart) {
-      updateChart(this.chart, this.filteredModels);
+    // Render or update charts
+    if (this.charts) {
+      updateAllCharts(this.charts, this.filteredModels);
     } else {
-      this.chart = createRadarChart(this.filteredModels);
+      this.charts = createAllCharts(this.filteredModels);
     }
 
     // Render table

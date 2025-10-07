@@ -112,15 +112,52 @@ section h2 {
 }
 
 /* ===== Chart Section ===== */
-.chart-container {
+.charts-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 2rem;
+  margin-top: 1rem;
+}
+
+.chart-item {
+  background-color: var(--bg-secondary);
+  padding: 1.5rem;
+  border-radius: 8px;
+  box-shadow: var(--shadow-sm);
+}
+
+.chart-item h3 {
+  font-size: 1.1rem;
+  margin-bottom: 1rem;
+  color: var(--primary-color);
+  text-align: center;
+  border: none;
+  padding: 0;
+}
+
+.chart-container-small {
   position: relative;
-  height: 500px;
+  height: 400px;
   margin: 0 auto;
 }
 
-@media (max-width: 768px) {
-  .chart-container {
+@media (max-width: 1024px) {
+  .charts-grid {
+    grid-template-columns: 1fr;
+  }
+  
+  .chart-container-small {
     height: 350px;
+  }
+}
+
+@media (max-width: 768px) {
+  .chart-container-small {
+    height: 300px;
+  }
+  
+  .chart-item {
+    padding: 1rem;
   }
 }
 
