@@ -1,8 +1,9 @@
 # LLM MBTI Arena
 
-[![Update Visualization](https://github.com/YOUR_USERNAME/YOUR_REPO_NAME/actions/workflows/update-visualization.yml/badge.svg)](https://github.com/YOUR_USERNAME/YOUR_REPO_NAME/actions/workflows/update-visualization.yml)
 
 一个用于测试大语言模型（LLM）人格类型的命令行工具。通过标准的 MBTI（Myers-Briggs Type Indicator）测试题目与大模型进行交互，分析其回答倾向，最终得出模型的 16 型人格类型。
+
+![LLM MBTI Leaderboard](assets/images/mbti-arena-leaderboard.png)
 
 ## 特性
 
