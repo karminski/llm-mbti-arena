@@ -147,8 +147,8 @@ function createDimensionChart(canvasId, models, leftDim, rightDim, leftLabel, ri
 
   const ctx = canvas.getContext('2d');
   
-  // Limit to first 15 models for readability
-  const displayModels = models.slice(0, 15);
+  // Display all models
+  const displayModels = models;
   
   // Prepare data - convert to diverging bar chart format
   // Negative values for left dimension, positive for right
@@ -261,7 +261,7 @@ function createAllCharts(models) {
 function updateDimensionChart(chart, models, leftDim, rightDim) {
   if (!chart) return;
 
-  const displayModels = models.slice(0, 15);
+  const displayModels = models;
   
   chart.data.labels = displayModels.map(m => m.modelName);
   chart.data.datasets[0].data = displayModels.map(m => -m.dimensions[leftDim]);
