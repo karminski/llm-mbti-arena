@@ -97,8 +97,13 @@ section h2 {
 }
 
 @keyframes spin {
-  0% { transform: rotate(0deg); }
-  100% { transform: rotate(360deg); }
+  0% {
+    transform: rotate(0deg);
+  }
+
+  100% {
+    transform: rotate(360deg);
+  }
 }
 
 /* ===== Error Message ===== */
@@ -114,7 +119,7 @@ section h2 {
 /* ===== Chart Section ===== */
 .charts-grid {
   display: grid;
-  grid-template-columns: repeat(2, 1fr);
+  grid-template-columns: repeat(1, 1fr);
   gap: 2rem;
   margin-top: 1rem;
 }
@@ -137,7 +142,7 @@ section h2 {
 
 .chart-container-small {
   position: relative;
-  height: 400px;
+  min-height: 800px;
   margin: 0 auto;
 }
 
@@ -145,17 +150,17 @@ section h2 {
   .charts-grid {
     grid-template-columns: 1fr;
   }
-  
+
   .chart-container-small {
-    height: 350px;
+    min-height: 700px;
   }
 }
 
 @media (max-width: 768px) {
   .chart-container-small {
-    height: 300px;
+    min-height: 600px;
   }
-  
+
   .chart-item {
     padding: 1rem;
   }
@@ -337,8 +342,13 @@ td {
 }
 
 @keyframes fadeIn {
-  from { opacity: 0; }
-  to { opacity: 1; }
+  from {
+    opacity: 0;
+  }
+
+  to {
+    opacity: 1;
+  }
 }
 
 .modal-content {
@@ -359,6 +369,7 @@ td {
     transform: translateY(-50px);
     opacity: 0;
   }
+
   to {
     transform: translateY(0);
     opacity: 1;
@@ -535,7 +546,8 @@ footer p {
     font-size: 0.8rem;
   }
 
-  th, td {
+  th,
+  td {
     padding: 0.5rem 0.25rem;
   }
 
@@ -568,10 +580,26 @@ footer p {
   text-align: center;
 }
 
-.mt-1 { margin-top: 0.5rem; }
-.mt-2 { margin-top: 1rem; }
-.mt-3 { margin-top: 1.5rem; }
+.mt-1 {
+  margin-top: 0.5rem;
+}
 
-.mb-1 { margin-bottom: 0.5rem; }
-.mb-2 { margin-bottom: 1rem; }
-.mb-3 { margin-bottom: 1.5rem; }
+.mt-2 {
+  margin-top: 1rem;
+}
+
+.mt-3 {
+  margin-top: 1.5rem;
+}
+
+.mb-1 {
+  margin-bottom: 0.5rem;
+}
+
+.mb-2 {
+  margin-bottom: 1rem;
+}
+
+.mb-3 {
+  margin-bottom: 1.5rem;
+}

@@ -39,7 +39,7 @@ async function loadIndividualResults() {
     // Since we can't list directory in browser, we'll try to load a known set
     // This is a fallback and may not work in all scenarios
     console.log('Attempting to load individual benchmark results...');
-    
+
     // In a real scenario, you would need a file listing endpoint or
     // pre-generated list of files. For now, return empty data with error
     throw new Error('Cannot load individual files without summary.json');
@@ -56,26 +56,26 @@ async function loadIndividualResults() {
  */
 function extractProvider(modelName) {
   if (!modelName) return 'unknown';
-  
+
   // Handle different formats
   if (modelName.includes('/')) {
     return modelName.split('/')[0];
   }
-  
+
   if (modelName.includes('_')) {
     return modelName.split('_')[0];
   }
-  
+
   // Try to extract from common patterns
   const lowerName = modelName.toLowerCase();
   const providers = ['openai', 'anthropic', 'google', 'meta', 'mistral', 'deepseek', 'qwen', 'grok', 'x-ai'];
-  
+
   for (const provider of providers) {
     if (lowerName.includes(provider)) {
       return provider;
     }
   }
-  
+
   return 'other';
 }
 
@@ -104,7 +104,7 @@ function formatDate(dateString) {
 function showError(message) {
   const loadingEl = document.getElementById('loading');
   const errorEl = document.getElementById('error-message');
-  
+
   if (loadingEl) loadingEl.style.display = 'none';
   if (errorEl) {
     errorEl.style.display = 'block';
@@ -120,7 +120,7 @@ function hideLoading() {
   const chartSection = document.getElementById('chart-section');
   const filtersSection = document.getElementById('filters');
   const tableSection = document.getElementById('table-section');
-  
+
   if (loadingEl) loadingEl.style.display = 'none';
   if (chartSection) chartSection.style.display = 'block';
   if (filtersSection) filtersSection.style.display = 'block';
@@ -146,10 +146,14 @@ function createDimensionChart(canvasId, models, leftDim, rightDim, leftLabel, ri
   }
 
   const ctx = canvas.getContext('2d');
-  
+
   // Display all models
   const displayModels = models;
-  
+
+  // Set dynamic height based on number of models (25px per model, minimum 800px)
+  const dynamicHeight = Math.max(800, displayModels.length * 25);
+  canvas.parentElement.style.height = dynamicHeight + 'px';
+
   // Prepare data - convert to diverging bar chart format
   // Negative values for left dimension, positive for right
   const labels = displayModels.map(m => m.modelName);
@@ -187,7 +191,7 @@ function createDimensionChart(canvasId, models, leftDim, rightDim, leftLabel, ri
             min: -100,
             max: 100,
             ticks: {
-              callback: function(value) {
+              callback: function (value) {
                 return Math.abs(value) + '%';
               }
             },
@@ -199,7 +203,7 @@ function createDimensionChart(canvasId, models, leftDim, rightDim, leftLabel, ri
             stacked: false,
             ticks: {
               font: {
-                size: 10
+                size: 16
               }
             }
           }
@@ -217,7 +221,7 @@ function createDimensionChart(canvasId, models, leftDim, rightDim, leftLabel, ri
           },
           tooltip: {
             callbacks: {
-              label: function(context) {
+              label: function (context) {
                 const model = displayModels[context.dataIndex];
                 const value = Math.abs(context.parsed.x);
                 const dim = context.datasetIndex === 0 ? leftDim : rightDim;
@@ -226,7 +230,37 @@ function createDimensionChart(canvasId, models, leftDim, rightDim, leftLabel, ri
             }
           }
         }
-      }
+      },
+      plugins: [{
+        id: 'fiftyPercentLine',
+        afterDraw: (chart) => {
+          const ctx = chart.ctx;
+          const xAxis = chart.scales.x;
+          const yAxis = chart.scales.y;
+
+          // Draw dashed lines at -50 and 50
+          ctx.save();
+          ctx.strokeStyle = '#999';
+          ctx.lineWidth = 1;
+          ctx.setLineDash([5, 5]);
+
+          // Left side: -50%
+          const leftX = xAxis.getPixelForValue(-50);
+          ctx.beginPath();
+          ctx.moveTo(leftX, yAxis.top);
+          ctx.lineTo(leftX, yAxis.bottom);
+          ctx.stroke();
+
+          // Right side: 50%
+          const rightX = xAxis.getPixelForValue(50);
+          ctx.beginPath();
+          ctx.moveTo(rightX, yAxis.top);
+          ctx.lineTo(rightX, yAxis.bottom);
+          ctx.stroke();
+
+          ctx.restore();
+        }
+      }]
     });
 
     console.log(`Chart ${canvasId} created successfully`);
@@ -262,11 +296,15 @@ function updateDimensionChart(chart, models, leftDim, rightDim) {
   if (!chart) return;
 
   const displayModels = models;
-  
+
+  // Update dynamic height based on number of models
+  const dynamicHeight = Math.max(800, displayModels.length * 25);
+  chart.canvas.parentElement.style.height = dynamicHeight + 'px';
+
   chart.data.labels = displayModels.map(m => m.modelName);
   chart.data.datasets[0].data = displayModels.map(m => -m.dimensions[leftDim]);
   chart.data.datasets[1].data = displayModels.map(m => m.dimensions[rightDim]);
-  
+
   chart.update();
 }
 
@@ -277,7 +315,7 @@ function updateDimensionChart(chart, models, leftDim, rightDim) {
  */
 function updateAllCharts(charts, models) {
   if (!charts) return;
-  
+
   updateDimensionChart(charts.ei, models, 'E', 'I');
   updateDimensionChart(charts.sn, models, 'S', 'N');
   updateDimensionChart(charts.tf, models, 'T', 'F');
@@ -292,7 +330,7 @@ function updateAllCharts(charts, models) {
 function renderTable(models) {
   const tbody = document.querySelector('#results-table tbody');
   const resultCount = document.getElementById('result-count');
-  
+
   if (!tbody) {
     console.error('Table body not found');
     return;
@@ -311,10 +349,10 @@ function renderTable(models) {
     const row = document.createElement('tr');
     row.dataset.modelName = model.modelName;
     row.dataset.filePath = model.filePath || '';
-    
+
     // Determine MBTI badge type for styling
     const mbtiType = model.personalityType.charAt(0); // E or I
-    
+
     row.innerHTML = `
       <td>${escapeHtml(model.modelName)}</td>
       <td>${escapeHtml(model.provider)}</td>
@@ -325,12 +363,12 @@ function renderTable(models) {
       <td>${model.dimensions.J}% J / ${model.dimensions.P}% P</td>
       <td>${formatDate(model.testTime)}</td>
     `;
-    
+
     // Add click event to show details
     row.addEventListener('click', () => {
       showDetailModal(model);
     });
-    
+
     tbody.appendChild(row);
   });
 
@@ -356,7 +394,7 @@ function escapeHtml(text) {
 function populateFilters(models) {
   const mbtiFilter = document.getElementById('mbti-filter');
   const providerFilter = document.getElementById('provider-filter');
-  
+
   if (!mbtiFilter || !providerFilter) {
     console.error('Filter elements not found');
     return;
@@ -364,7 +402,7 @@ function populateFilters(models) {
 
   // Get unique MBTI types
   const mbtiTypes = [...new Set(models.map(m => m.personalityType))].sort();
-  
+
   // Clear and populate MBTI filter
   mbtiFilter.innerHTML = '<option value="">All MBTI Types</option>';
   mbtiTypes.forEach(type => {
@@ -376,7 +414,7 @@ function populateFilters(models) {
 
   // Get unique providers
   const providers = [...new Set(models.map(m => m.provider))].sort();
-  
+
   // Clear and populate provider filter
   providerFilter.innerHTML = '<option value="">All Providers</option>';
   providers.forEach(provider => {
@@ -401,12 +439,12 @@ function applyFilters(models, filters) {
     if (filters.mbtiType && model.personalityType !== filters.mbtiType) {
       return false;
     }
-    
+
     // Provider filter
     if (filters.provider && model.provider !== filters.provider) {
       return false;
     }
-    
+
     // Search filter (case-insensitive)
     if (filters.search) {
       const searchLower = filters.search.toLowerCase();
@@ -415,7 +453,7 @@ function applyFilters(models, filters) {
         return false;
       }
     }
-    
+
     return true;
   });
 }
@@ -428,7 +466,7 @@ function getFilterValues() {
   const mbtiFilter = document.getElementById('mbti-filter');
   const providerFilter = document.getElementById('provider-filter');
   const searchBox = document.getElementById('search-box');
-  
+
   return {
     mbtiType: mbtiFilter ? mbtiFilter.value : '',
     provider: providerFilter ? providerFilter.value : '',
@@ -447,7 +485,7 @@ function getFilterValues() {
 function sortModels(models, column, direction) {
   const sorted = [...models].sort((a, b) => {
     let aVal, bVal;
-    
+
     // Get values based on column
     switch (column) {
       case 'modelName':
@@ -480,19 +518,19 @@ function sortModels(models, column, direction) {
       default:
         return 0;
     }
-    
+
     // Compare values
     if (typeof aVal === 'string') {
-      return direction === 'asc' 
+      return direction === 'asc'
         ? aVal.localeCompare(bVal)
         : bVal.localeCompare(aVal);
     } else {
-      return direction === 'asc' 
+      return direction === 'asc'
         ? aVal - bVal
         : bVal - aVal;
     }
   });
-  
+
   return sorted;
 }
 
@@ -502,25 +540,25 @@ function sortModels(models, column, direction) {
  */
 function setupTableSorting(onSort) {
   const headers = document.querySelectorAll('#results-table th.sortable');
-  
+
   headers.forEach(header => {
     header.addEventListener('click', () => {
       const column = header.dataset.sort;
-      
+
       // Determine new sort direction
       let direction = 'asc';
       if (header.classList.contains('asc')) {
         direction = 'desc';
       }
-      
+
       // Remove sort classes from all headers
       headers.forEach(h => {
         h.classList.remove('asc', 'desc');
       });
-      
+
       // Add sort class to clicked header
       header.classList.add(direction);
-      
+
       // Trigger sort callback
       if (onSort) {
         onSort(column, direction);
@@ -538,7 +576,7 @@ async function showDetailModal(model) {
   const modal = document.getElementById('detail-modal');
   const modalTitle = document.getElementById('modal-title');
   const modalBody = document.getElementById('modal-body');
-  
+
   if (!modal || !modalTitle || !modalBody) {
     console.error('Modal elements not found');
     return;
@@ -546,7 +584,7 @@ async function showDetailModal(model) {
 
   // Set title
   modalTitle.textContent = model.modelName;
-  
+
   // Show loading state
   modalBody.innerHTML = '<div class="loading"><div class="spinner"></div><p>Loading details...</p></div>';
   modal.style.display = 'block';
@@ -554,7 +592,7 @@ async function showDetailModal(model) {
   try {
     // Try to load full benchmark result
     let fullData = null;
-    
+
     if (model.filePath) {
       const response = await fetch(model.filePath);
       if (response.ok) {
@@ -618,7 +656,7 @@ async function showDetailModal(model) {
           <h3>Test Answers (${fullData.answers.length} questions)</h3>
           <div class="answers-list">
       `;
-      
+
       fullData.answers.forEach(answer => {
         content += `
           <div class="answer-item">
@@ -628,7 +666,7 @@ async function showDetailModal(model) {
           </div>
         `;
       });
-      
+
       content += `
           </div>
         </div>
@@ -668,12 +706,12 @@ function closeModal() {
 function setupModalHandlers() {
   const modal = document.getElementById('detail-modal');
   const closeBtn = document.querySelector('.close');
-  
+
   // Close button click
   if (closeBtn) {
     closeBtn.addEventListener('click', closeModal);
   }
-  
+
   // Click outside modal to close
   if (modal) {
     modal.addEventListener('click', (event) => {
@@ -682,7 +720,7 @@ function setupModalHandlers() {
       }
     });
   }
-  
+
   // ESC key to close
   document.addEventListener('keydown', (event) => {
     if (event.key === 'Escape') {
@@ -711,18 +749,18 @@ class MBTIArena {
    */
   async init() {
     console.log('Initializing LLM MBTI Arena...');
-    
+
     try {
       // Load data
       const data = await loadSummaryData();
-      
+
       if (!data || !data.models || data.models.length === 0) {
         throw new Error('No model data available');
       }
 
       this.allModels = data.models;
       this.filteredModels = [...this.allModels];
-      
+
       console.log(`Loaded ${this.allModels.length} models`);
 
       // Hide loading, show content
@@ -730,10 +768,10 @@ class MBTIArena {
 
       // Initialize UI components
       this.setupUI();
-      
+
       // Render initial data
       this.render();
-      
+
       console.log('Application initialized successfully');
     } catch (error) {
       console.error('Failed to initialize application:', error);
@@ -791,7 +829,7 @@ class MBTIArena {
   handleFilterChange() {
     const filters = getFilterValues();
     this.filteredModels = applyFilters(this.allModels, filters);
-    
+
     // Apply current sort if any
     if (this.currentSort.column) {
       this.filteredModels = sortModels(
@@ -800,7 +838,7 @@ class MBTIArena {
         this.currentSort.direction
       );
     }
-    
+
     this.render();
   }
 
@@ -831,7 +869,7 @@ class MBTIArena {
     if (searchBox) searchBox.value = '';
 
     this.filteredModels = [...this.allModels];
-    
+
     // Apply current sort if any
     if (this.currentSort.column) {
       this.filteredModels = sortModels(
@@ -840,7 +878,7 @@ class MBTIArena {
         this.currentSort.direction
       );
     }
-    
+
     this.render();
   }
 
