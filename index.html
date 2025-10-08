@@ -1,19 +1,22 @@
 <!DOCTYPE html>
 <html lang="zh-CN">
+
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>LLM MBTI Arena - Personality Types of Large Language Models</title>
-  <meta name="description" content="Interactive visualization of MBTI personality types for various Large Language Models">
+  <meta name="description"
+    content="Interactive visualization of MBTI personality types for various Large Language Models">
   <link rel="stylesheet" href="assets/css/styles.css">
 </head>
+
 <body>
   <header>
-    <h1>🤖 LLM MBTI Arena</h1>
+    <h1>KCORES LLM MBTI Arena</h1>
     <p class="subtitle">Personality Types of Large Language Models</p>
     <p class="description">Explore MBTI test results from 93-question assessments across different AI models</p>
   </header>
-  
+
   <main>
     <!-- Loading Indicator -->
     <div id="loading" class="loading">
@@ -56,7 +59,7 @@
         </div>
       </div>
     </section>
-    
+
     <!-- Filters Section -->
     <section id="filters" class="filters-section" style="display: none;">
       <h2>Filter Results</h2>
@@ -67,23 +70,23 @@
             <option value="">All MBTI Types</option>
           </select>
         </div>
-        
+
         <div class="filter-group">
           <label for="provider-filter">Provider:</label>
           <select id="provider-filter">
             <option value="">All Providers</option>
           </select>
         </div>
-        
+
         <div class="filter-group search-group">
           <label for="search-box">Search Model:</label>
           <input type="text" id="search-box" placeholder="Search by model name...">
         </div>
-        
+
         <button id="reset-filters" class="btn-reset">Reset Filters</button>
       </div>
     </section>
-    
+
     <!-- Table Section -->
     <section id="table-section" class="table-section" style="display: none;">
       <h2>Model Results</h2>
@@ -134,7 +137,7 @@
         </table>
       </div>
     </section>
-    
+
     <!-- Detail Modal -->
     <div id="detail-modal" class="modal">
       <div class="modal-content">
@@ -148,22 +151,23 @@
       </div>
     </div>
   </main>
-  
+
   <footer>
     <div class="footer-content">
       <img src="assets/images/kcores-llm-arena-logo-black.png" alt="LLM MBTI Arena Logo" class="footer-logo">
       <p>LLM MBTI Arena - Powered by MBTI 93-Question Test</p>
       <p class="footer-links">
-        <a href="https://github.com/yourusername/llm-mbti-arena" target="_blank">GitHub</a> |
-        <a href="README.md">Documentation</a>
+        <a href="https://github.com/karminski/llm-mbti-arena" target="_blank">GitHub</a> |
+        <a href="https://github.com/karminski/llm-mbti-arena/README.md">Documentation</a>
       </p>
     </div>
   </footer>
-  
+
   <!-- Chart.js Library -->
   <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.0/dist/chart.umd.min.js"></script>
-  
+
   <!-- Application Script -->
   <script src="assets/js/app.js"></script>
 </body>
+
 </html>
