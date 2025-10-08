@@ -136,9 +136,11 @@ function hideLoading() {
  * @param {string} rightDim - Right dimension (e.g., 'I')
  * @param {string} leftLabel - Left label (e.g., 'Extrovert')
  * @param {string} rightLabel - Right label (e.g., 'Introvert')
+ * @param {string} leftColor - Color for left dimension
+ * @param {string} rightColor - Color for right dimension
  * @returns {Chart} Chart.js instance
  */
-function createDimensionChart(canvasId, models, leftDim, rightDim, leftLabel, rightLabel) {
+function createDimensionChart(canvasId, models, leftDim, rightDim, leftLabel, rightLabel, leftColor, rightColor) {
   const canvas = document.getElementById(canvasId);
   if (!canvas) {
     console.error(`Chart canvas ${canvasId} not found`);
@@ -169,15 +171,15 @@ function createDimensionChart(canvasId, models, leftDim, rightDim, leftLabel, ri
           {
             label: leftLabel,
             data: leftData,
-            backgroundColor: '#FF6384',
-            borderColor: '#FF6384',
+            backgroundColor: leftColor,
+            borderColor: leftColor,
             borderWidth: 1
           },
           {
             label: rightLabel,
             data: rightData,
-            backgroundColor: '#36A2EB',
-            borderColor: '#36A2EB',
+            backgroundColor: rightColor,
+            borderColor: rightColor,
             borderWidth: 1
           }
         ]
@@ -278,10 +280,10 @@ function createDimensionChart(canvasId, models, leftDim, rightDim, leftLabel, ri
  */
 function createAllCharts(models) {
   return {
-    ei: createDimensionChart('ei-chart', models, 'E', 'I', 'Extrovert (E)', 'Introvert (I)'),
-    sn: createDimensionChart('sn-chart', models, 'S', 'N', 'Sensing (S)', 'Intuitive (N)'),
-    tf: createDimensionChart('tf-chart', models, 'T', 'F', 'Thinking (T)', 'Feeling (F)'),
-    jp: createDimensionChart('jp-chart', models, 'J', 'P', 'Judging (J)', 'Perceiving (P)')
+    ei: createDimensionChart('ei-chart', models, 'E', 'I', 'Extrovert (E)', 'Introvert (I)', '#FF6384', '#36A2EB'),
+    sn: createDimensionChart('sn-chart', models, 'S', 'N', 'Sensing (S)', 'Intuitive (N)', '#FFCE56', '#4BC0C0'),
+    tf: createDimensionChart('tf-chart', models, 'T', 'F', 'Thinking (T)', 'Feeling (F)', '#9966FF', '#FF9F40'),
+    jp: createDimensionChart('jp-chart', models, 'J', 'P', 'Judging (J)', 'Perceiving (P)', '#E74C3C', '#1ABC9C')
   };
 }
 
